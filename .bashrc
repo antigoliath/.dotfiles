@@ -4,7 +4,7 @@ else export TERM=xterm-color
 fi
 
 # globals
-export EC2='ubuntu@184.73.248.188'
+export EC2='ubuntu@davidxu.me'
 
 # navigation aliases
 alias cd='cd_ls'
@@ -32,7 +32,9 @@ alias minecraft='java -Xmx1024M -Xms512M -cp ~/Desktop/minecraft.jar net.minecra
 alias sass='sass --watch'
 alias python='ipython'
 alias chrome-local='chromium-browser --allow-file-access-from-files'
+alias google-chrome='google-chrome --audio-buffer-size=2048'
 alias chrome='google-chrome'
+alias venv='virtualenv'
 
 # editor-related
 # ain't no one usin' nothin but vim!
@@ -72,9 +74,9 @@ function cd_ls(){
   builtin cd $@; ls
 }
 
-# Usage: seasprint xx.pdf (taken from KH)
+# Usage: seasprint xx.pdf (modified from Kyle)
 function seasprint() {
-   cat "$1" | ssh davidxu@eniac.seas.upenn.edu lpr -P169 -o Duplex=DuplexNoTumble
+   cat "$1" | ssh davidxu@eniac.seas.upenn.edu lpr -P169 -o page-ranges=$2-$3 -o Duplex=DuplexNoTumble 
 }
 
 # Block or unblock Facebook (taken from KH)

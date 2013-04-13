@@ -25,6 +25,8 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'tmhedberg/matchit'
+Bundle 'tpope/vim-ragtag'
 
 Bundle 'klen/python-mode'
 Bundle 'nono/vim-handlebars'
@@ -256,6 +258,7 @@ map <Leader>= <C-w>=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
+map g0 :call cursor(0, len(getline('.'))/2)<CR>
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -402,7 +405,7 @@ map <C-p> :CtrlP<CR>
 imap <C-p> <ESC>:CtrlP<CR>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv',
   \ 'file': '\v\.(exe|so|dll|swp|o)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
