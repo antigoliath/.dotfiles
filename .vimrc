@@ -27,6 +27,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-ragtag'
+Bundle 'fholgado/minibufexpl.vim'
 
 Bundle 'klen/python-mode'
 Bundle 'nono/vim-handlebars'
@@ -251,6 +252,11 @@ imap <C-9> <Esc>9gt
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
+
+" mappings to access buffers, [b and ]b for back and forward,
+" [v, ]v, go to last visited buffers
+nnoremap [v :e#<CR>  
+nnoremap ]v :e#<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
