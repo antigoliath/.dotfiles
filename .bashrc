@@ -1,3 +1,22 @@
+# archlinux
+# Add nano as default editor
+export EDITOR=vim
+
+alias ls='ls --color=auto'
+[ ! "$UID" = "0" ] && archbey2
+
+# git completion
+source /usr/share/git/completion/git-completion.bash
+
+# https://wiki.archlinux.org/index.php/DualScreen
+
+# above: xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1024x768 --above VGA1
+
+# left-of: xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1024x768 --left-of VGA1
+
+# right-of: xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1024x768 --right-of VGA1
+
+
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
         export TERM=xterm-256color
 else export TERM=xterm-color
