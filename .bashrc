@@ -1,7 +1,10 @@
 # archlinux
 # Add nano as default editor
 export EDITOR=vim
+PATH=$PATH:~/.gem/ruby/2.0.0/bin #add gems
+export GEM_HOME=~/.gem/ruby/2.0.0
 
+# other
 alias ls='ls --color=auto'
 [ ! "$UID" = "0" ] && archbey2
 
@@ -9,13 +12,27 @@ alias ls='ls --color=auto'
 source /usr/share/git/completion/git-completion.bash
 
 # https://wiki.archlinux.org/index.php/DualScreen
+alias monitor='monitor_none'
+alias monitort='monitor_above'
+alias monitorr='monitor_right'
+alias monitorl='monitor_left'
 
-# above: xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1024x768 --above VGA1
 
-# left-of: xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1024x768 --left-of VGA1
+function monitor_none(){
+  xrandr --output LVDS1 --mode 1366x768 --output VGA1 --off
+}
 
-# right-of: xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1024x768 --right-of VGA1
+function monitor_above(){
+  xrandr --output LVDS1 --mode 1366x768 --output VGA1 --mode 1920x1080 --above LVDS1
+}
 
+function monitor_left(){
+  xrandr --output LVDS1 --mode 1366x768 --output VGA1 --mode 1920x1080 --left-of LVDS1
+}
+
+function monitor_right(){
+  xrandr --output LVDS1 --mode 1366x768 --output VGA1 --mode 1920x1080 --right-of LVDS1
+}
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
         export TERM=xterm-256color
@@ -126,3 +143,6 @@ for f in $(command ls ~/.node-completion); do
   test -f "$f" && . "$f"
 done
 # }}}
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
