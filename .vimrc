@@ -32,6 +32,9 @@ Bundle 'klen/python-mode'
 Bundle 'nono/vim-handlebars'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'Raimondi/delimitMate'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -460,6 +463,13 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>b :BuffergatorToggle<CR>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ragtag 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <M-o> <Esc>o
+inoremap <C-j> <Down>
+let g:ragtag_global_maps = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
