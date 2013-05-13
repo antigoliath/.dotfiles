@@ -6,6 +6,9 @@ set shell=/bin/sh
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+      
+" for 'b'
+set iskeyword-=_
 
 Bundle 'fu'
 Bundle 'jelera/vim-javascript-syntax'
@@ -470,6 +473,12 @@ nmap <leader>b :BuffergatorToggle<CR>
 inoremap <M-o> <Esc>o
 inoremap <C-j> <Down>
 let g:ragtag_global_maps = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ragtag 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:miniBufExplCheckDupeBufs = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python

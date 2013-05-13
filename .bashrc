@@ -66,7 +66,7 @@ alias ack='ack --flush --color'
 # applications
 alias minecraft='java -Xmx1024M -Xms512M -cp ~/Desktop/minecraft.jar net.minecraft.LauncherFrame'
 alias sass='sass --watch'
-alias python='ipython'
+# alias python='ipython'
 alias chrome-local='chromium-browser --allow-file-access-from-files'
 alias google-chrome='google-chrome --audio-buffer-size=2048'
 alias chrome='google-chrome'
@@ -133,16 +133,15 @@ blockfb() {
     fi
 }
 
-
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # {{{
 # Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
+# shopt -s progcomp
+# for f in $(command ls ~/.node-completion); do
+#   f="$HOME/.node-completion/$f"
+#   test -f "$f" && . "$f"
+# done
 # }}}
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
