@@ -4,12 +4,18 @@ export EDITOR=vim
 PATH=$PATH:~/.gem/ruby/2.0.0/bin #add gems
 export GEM_HOME=~/.gem/ruby/2.0.0
 
+# fix tmux colors
+alias tmux="TERM=screen-256color-bce tmux"
+
 # other
-alias ls='ls --color=auto'
-[ ! "$UID" = "0" ] && archbey2
+# alias ls='ls --color=auto'
+# [ ! "$UID" = "0" ] && archbey2
 
 # git completion
-source /usr/share/git/completion/git-completion.bash
+# source /usr/share/git/completion/git-completion.bash
+
+# ctags on mac
+export PATH="/usr/local/bin:$PATH"
 
 # https://wiki.archlinux.org/index.php/DualScreen
 alias monitor='monitor_none'
@@ -145,3 +151,10 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # done
 # }}}
 
+# always show git branch
+# Git branch in prompt.
+# Git branch in prompt.
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "

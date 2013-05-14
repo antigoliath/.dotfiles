@@ -6,6 +6,8 @@ set shell=/bin/sh
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+set t_ut=
       
 " for 'b'
 set iskeyword-=_
@@ -652,3 +654,5 @@ let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
 
 " For fast machines
 let g:pymode_syntax_slow_sync = 0
+
+" for coffeetags: https://github.com/lukaszkorecki/CoffeeTags/issues
