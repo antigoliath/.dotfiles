@@ -13,6 +13,9 @@ alias tmux="TERM=screen-256color-bce tmux"
 
 # git completion
 # source /usr/share/git/completion/git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 # ctags on mac
 export PATH="/usr/local/bin:$PATH"
@@ -75,7 +78,7 @@ alias sass='sass --watch'
 # alias python='ipython'
 alias chrome-local='chromium-browser --allow-file-access-from-files'
 alias google-chrome='google-chrome --audio-buffer-size=2048'
-alias chrome='google-chrome'
+alias chrome='open /Applications/Google\ Chrome.app'
 alias venv='virtualenv'
 
 # editor-related
@@ -157,4 +160,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\w \t\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
