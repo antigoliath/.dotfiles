@@ -21,6 +21,8 @@ fi
 
 # ctags on mac
 export PATH="/usr/local/bin:$PATH"
+# python stuff on mac
+export PATH=/usr/local/share/python:$PATH
 
 # https://wiki.archlinux.org/index.php/DualScreen
 alias monitor='monitor_none'
@@ -86,7 +88,7 @@ alias venv='virtualenv'
 # editor-related
 # ain't no one usin' nothin but vim!
 alias vi='vim'
-alias emacs='vim'
+# alias emacs='vim'
 alias nano='vim'
 alias gedit='vim'
 
