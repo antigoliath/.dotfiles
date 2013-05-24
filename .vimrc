@@ -441,10 +441,15 @@ map <leader>rt :TagbarToggle<CR>
 map <leader>gb :Gblame<CR>
 map <leader>gs :Gstatus<CR>
 map <leader>gd :Gdiff<CR>
+map <leader>dg :diffget<CR>
+map <leader>du :diffupdate<CR>
+map <leader>gr :Gread<CR>
+map <leader>gw :Gwrite<CR>
 map <leader>gl :Glog<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gP :Git pull
 map <leader>gp :Git push
+map <leader>g :Git 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ZoomWin 

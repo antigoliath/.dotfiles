@@ -6,6 +6,8 @@ export GEM_HOME=~/.gem/ruby/2.0.0
 
 # fix tmux colors
 alias tmux="TERM=screen-256color-bce tmux"
+# git colors
+git config --global color.ui true
 
 # other
 # alias ls='ls --color=auto'
