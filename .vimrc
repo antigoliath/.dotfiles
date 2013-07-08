@@ -45,6 +45,7 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'Shougo/vimshell.vim'
+Bundle 'roman/golden-ratio'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -493,6 +494,21 @@ let g:ragtag_global_maps = 1
 " ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:miniBufExplCheckDupeBufs = 0
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GoldenRatio
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F4> :GoldenRatioToggle
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-bufferline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:bufferline_echo=0
+set statusline=%{bufferline#generate_string()}
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
