@@ -1,6 +1,7 @@
 # archlinux
 # Add nano as default editor
-export EDITOR=vim
+# export EDITOR=vim
+export EDITOR='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 PATH=$PATH:~/.gem/ruby/2.0.0/bin #add gems
 export GEM_HOME=~/.gem/ruby/2.0.0
 
@@ -23,6 +24,8 @@ fi
 export PATH="/usr/local/bin:$PATH"
 # python stuff on mac
 export PATH=/usr/local/share/python:$PATH
+# fix for YCM vim:
+DYLD_FORCE_FLAT_NAMESPACE=1
 
 # https://wiki.archlinux.org/index.php/DualScreen
 alias monitor='monitor_none'
@@ -62,10 +65,11 @@ alias ll='ls -l'
 alias l='ls'
 alias lla='ls -la'
 alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias sl='sl -al'
+alias less-watch="watchr -e 'watch(".*\.less$") { |f| system("lessc #{f[0]} > #{f[0]}.css") }'"
 
 # ssh
 alias labs='ssh davidxu@pennapps.com'
@@ -82,7 +86,7 @@ alias sass='sass --watch'
 # alias python='ipython'
 alias chrome-local='chromium-browser --allow-file-access-from-files'
 alias google-chrome='google-chrome --audio-buffer-size=2048'
-alias chrome='open /Applications/Google\ Chrome.app'
+alias chrome='open -a Google\ Chrome --args --disable-web-security'
 alias venv='virtualenv'
 
 # editor-related
@@ -91,6 +95,9 @@ alias vi='vim'
 # alias emacs='vim'
 alias nano='vim'
 alias gedit='vim'
+# hack for YCM
+alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
+alias mvim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim'
 
 alias lvim="!vim" # lastvim
 
@@ -113,7 +120,7 @@ function cowsay_echo(){
   # edge case
   if [ "$#" -eq 0 ]; then
     cowsay ' '
-  else 
+  else
     cowsay $@
   fi
 }
@@ -125,12 +132,12 @@ function cd_ls(){
 
 # Usage: seasprint xx.pdf (modified from Kyle)
 function seasprint() {
-   cat "$1" | ssh davidxu@eniac.seas.upenn.edu lpr -P169 -o page-ranges=$2-$3 -o Duplex=DuplexNoTumble 
+   cat "$1" | ssh davidxu@eniac.seas.upenn.edu lpr -P169 -o page-ranges=$2-$3 -o Duplex=DuplexNoTumble
 }
 
 # Block or unblock Facebook (taken from KH)
 blockfb() {
-    if [ -f /etc/hosts-fb ]; then # Facebook is blocked 
+    if [ -f /etc/hosts-fb ]; then # Facebook is blocked
         read -sp "Are you sure you want to unblock Facebook? " response
         # if [ $response != "YesI'mfucking*positive*" ]; then
         #     echo "Sorry, I guess you're not sure."

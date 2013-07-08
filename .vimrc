@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 set t_ut=
-      
+
 " for 'b'
 set iskeyword-=_
 
@@ -24,15 +24,13 @@ Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'skwp/vim-easymotion'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-ragtag'
-Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'klen/python-mode'
 Bundle 'nono/vim-handlebars'
 Bundle 'kchmck/vim-coffee-script'
@@ -40,13 +38,19 @@ Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'Raimondi/delimitMate'
-
+Bundle 'Valloric/MatchTagAlways'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'drichard/vim-brunch'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
+Bundle 'Shougo/vimshell.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype plugin on 
+filetype plugin on
 filetype indent on     " required!
 
 " Set to auto read when a file is changed from the outside
@@ -95,14 +99,14 @@ set whichwrap+=<,>,h,l>
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -111,7 +115,7 @@ set lazyredraw
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -164,6 +168,10 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" automatically remove whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+
 " Use spaces instead of tabs
 set expandtab
 
@@ -262,7 +270,7 @@ map <Leader>= <C-w>=
 
 " mappings to access buffers, [b and ]b for back and forward,
 " [v, ]v, go to last visited buffers
-nnoremap [v :e#<CR>  
+nnoremap [v :e#<CR>
 nnoremap ]v :e#<CR>
 
 
@@ -286,14 +294,14 @@ map <leader>; A;<ESC>
 
 
 """"""""""""""""""""""""""""""""""""""""""
-" Other 
+" Other
 """"""""""""""""""""""""""""""""""""""""""
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
+" set guioptions-=r
+" set guioptions-=R
+" set guioptions-=l
+" set guioptions-=L
 
 " Bash like keys for the command line
 cnoremap <C-A> <Home>
@@ -328,7 +336,7 @@ endif
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn persistent undo on 
+" Turn persistent undo on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
   set undodir=~/.dotfiles/temp/undos
@@ -354,32 +362,32 @@ let g:yankring_history_dir = '~/.dotfiles/temp/'
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>n :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark 
+map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
 
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
- 
+
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
   let explicitDirectory = isdirectory(a:directory)
   let directory = explicitDirectory || empty(a:directory)
-  
+
   if explicitDirectory
     exe "cd " . fnameescape(a:directory)
   endif
-  
+
   " Allows reading from stdin
   " ex: git diff | mvim -R -
   if strlen(a:directory) == 0
     return
   endif
-  
+
   if directory
     NERDTree
     wincmd p
     bd
   endif
-  
+
   if explicitDirectory
     wincmd p
   endif
@@ -424,19 +432,19 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDCommenter 
+" NERDCommenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <leader>c <plug>NERDCommenterToggle<CR>
-imap <leader>c <Esc><plug>NERDCommenterToggle<CR>i 
+imap <leader>c <Esc><plug>NERDCommenterToggle<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tagbar 
+" Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>rt :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fugitive 
+" Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>gb :Gblame<CR>
 map <leader>gs :Gstatus<CR>
@@ -449,10 +457,10 @@ map <leader>gl :Glog<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gP :Git pull
 map <leader>gp :Git push
-map <leader>g :Git 
+map <leader>g :Git
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ZoomWin 
+" ZoomWin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>z :ZoomWin<CR>
 
@@ -469,20 +477,20 @@ if exists(":Tabularize")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BufferGator
+" BufferGator (deprecated by vim-airline/vim-bufferline)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>b :BuffergatorToggle<CR>
+" nmap <leader>b :BuffergatorToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ragtag 
+" ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <M-o> <Esc>o
 inoremap <C-j> <Down>
 let g:ragtag_global_maps = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ragtag 
+" ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:miniBufExplCheckDupeBufs = 0
 
