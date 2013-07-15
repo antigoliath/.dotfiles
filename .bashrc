@@ -59,7 +59,6 @@ fi
 export EC2='ubuntu@davidxu.me'
 
 # navigation aliases
-alias cd='cd_ls'
 alias la='ls -a'
 alias ll='ls -l'
 alias l='ls'
@@ -70,6 +69,7 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias sl='sl -al'
 alias less-watch="watchr -e 'watch(".*\.less$") { |f| system("lessc #{f[0]} > #{f[0]}.css") }'"
+alias cd='cd_ls'
 
 # ssh
 alias labs='ssh davidxu@pennapps.com'
@@ -139,16 +139,17 @@ function seasprint() {
 blockfb() {
     if [ -f /etc/hosts-fb ]; then # Facebook is blocked
         read -sp "Are you sure you want to unblock Facebook? " response
-        # if [ $response != "YesI'mfucking*positive*" ]; then
-        #     echo "Sorry, I guess you're not sure."
-        # else
+        if [ $response != "ajhblfualoiejfoihjdhfbiuajoijoaihgauhbasd;" ]; then
+            echo "Sorry, I guess you're not sure."
+        else
             sudo mv /etc/hosts-fb /etc/hosts
             echo "Facebook has been unblocked."
-        # fi
+        fi
     else # Block Facebook
         sudo cp /etc/hosts /etc/hosts-fb
         sudo sh -c 'echo "127.0.0.1 facebook.com" >> /etc/hosts'
         sudo sh -c 'echo "127.0.0.1 www.facebook.com" >> /etc/hosts'
+        sudo sh -c 'echo "127.0.0.1 https://www.facebook.com" >> /etc/hosts'
         echo "Facebook has been blocked."
     fi
 }

@@ -1,0 +1,6 @@
+[user]
+	email = xudavidb@gmail.com
+[color]
+	ui = true
+[core]
+	excludesfile = ~/.gitignore_global

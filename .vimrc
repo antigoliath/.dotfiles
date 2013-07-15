@@ -13,7 +13,6 @@ set t_ut=
 set iskeyword-=_
 
 Bundle 'fu'
-Bundle 'jelera/vim-javascript-syntax'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
@@ -46,6 +45,8 @@ Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'roman/golden-ratio'
+Bundle 'suan/vim-instant-markdown'
+Bundle 'marijnh/tern_for_vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -273,6 +274,9 @@ map <Leader>= <C-w>=
 " [v, ]v, go to last visited buffers
 nnoremap [v :e#<CR>
 nnoremap ]v :e#<CR>
+
+" delete current buffer
+nnoremap \bd :bd<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -509,6 +513,10 @@ let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_theme='light'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
