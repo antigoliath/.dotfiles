@@ -60,10 +60,6 @@ function cowsay_echo(){
   fi
 }
 
-# have it show it after changing
-function cd_ls(){
-  builtin cd $@; ls
-}
 
 # Usage: seasprint xx.pdf (modified from Kyle)
 function seasprint() {
@@ -204,3 +200,8 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# have it show it after changing
+function cd_ls(){
+  builtin cd $@; ls
+}
