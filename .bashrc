@@ -5,8 +5,6 @@ export EDITOR='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 PATH=$PATH:~/.gem/ruby/2.0.0/bin #add gems
 export GEM_HOME=~/.gem/ruby/2.0.0
 
-# fix tmux colors
-alias tmux="TERM=screen-256color-bce tmux"
 # git colors
 git config --global color.ui true
 
@@ -27,11 +25,6 @@ export PATH=/usr/local/share/python:$PATH
 # fix for YCM vim:
 DYLD_FORCE_FLAT_NAMESPACE=1
 
-# https://wiki.archlinux.org/index.php/DualScreen
-alias monitor='monitor_none'
-alias monitort='monitor_above'
-alias monitorr='monitor_right'
-alias monitorl='monitor_left'
 
 
 function monitor_none(){
@@ -57,64 +50,6 @@ fi
 
 # globals
 export EC2='ubuntu@davidxu.me'
-
-# navigation aliases
-alias la='ls -a'
-alias ll='ls -l'
-alias l='ls'
-alias lla='ls -la'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias sl='sl -al'
-alias less-watch="watchr -e 'watch(".*\.less$") { |f| system("lessc #{f[0]} > #{f[0]}.css") }'"
-alias cd='cd_ls'
-
-# ssh
-alias labs='ssh davidxu@pennapps.com'
-
-# web
-alias wget='wget -c'
-
-# search
-alias ack='ack --flush --color'
-
-# applications
-alias minecraft='java -Xmx1024M -Xms512M -cp ~/Desktop/minecraft.jar net.minecraft.LauncherFrame'
-alias sass='sass --watch'
-# alias python='ipython'
-alias chrome-local='chromium-browser --allow-file-access-from-files'
-alias google-chrome='google-chrome --audio-buffer-size=2048'
-alias chrome='open -a Google\ Chrome --args --disable-web-security'
-alias venv='virtualenv'
-
-# editor-related
-# ain't no one usin' nothin but vim!
-alias vi='vim'
-# alias emacs='vim'
-alias nano='vim'
-alias gedit='vim'
-# hack for YCM
-alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
-alias mvim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim'
-
-alias lvim="!vim" # lastvim
-
-# system
-alias logout='lxsession-logout'
-alias reboot='sudo /sbin/reboot'
-alias poweroff='sudo /sbin/poweroff'
-alias halt='sudo /sbin/halt'
-alias shutdown='sudo /sbin/shutdown'
-
-alias install='sudo apt-get install'
-alias uninstall='sudo apt-get rm'
-alias update='sudo apt-get update'
-
-# funny stuff
-alias ecco='cowsay_echo'
-
 
 function cowsay_echo(){
   # edge case
@@ -166,10 +101,106 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # done
 # }}}
 
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
 # always show git branch
 # Git branch in prompt.
 # Git branch in prompt.
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\w \t\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+if [ "$color_prompt" = yes ]; then
+    PS1="\w \t\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
