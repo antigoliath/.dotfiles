@@ -40,6 +40,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'drichard/vim-brunch'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
@@ -47,6 +49,7 @@ Bundle 'Shougo/vimshell.vim'
 Bundle 'roman/golden-ratio'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'juvenn/mustache.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -170,9 +173,11 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enable javascript code folding
+au FileType javascript call JavaScriptFold()
+
 " automatically remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
 
 " Use spaces instead of tabs
 set expandtab
@@ -314,6 +319,10 @@ cnoremap <C-E> <End>
 cnoremap <C-K> <C-U>
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
+
+" Bash like keys for insert mode
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 
 " Map auto complete of (, ", ', [
 " inoremap ( ()<esc>i

@@ -139,7 +139,7 @@ function seasprint() {
 blockfb() {
     if [ -f /etc/hosts-fb ]; then # Facebook is blocked
         read -sp "Are you sure you want to unblock Facebook? " response
-        if [ $response != "ajhblfualoiejfoihjdhfbiuajoijoaihgauhbasd;" ]; then
+        if [ $response != "yes" ]; then
             echo "Sorry, I guess you're not sure."
         else
             sudo mv /etc/hosts-fb /etc/hosts
