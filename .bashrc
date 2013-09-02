@@ -203,5 +203,5 @@ fi
 
 # have it show it after changing
 function cd_ls(){
-  builtin cd $@; ls
+  builtin cd "$@"; ls
 }
