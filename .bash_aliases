@@ -62,5 +62,3 @@ alias update='sudo apt-get update'
 
 # funny stuff
 alias ecco='cowsay_echo'
-
-

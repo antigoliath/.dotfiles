@@ -4,3 +4,12 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+[alias]
+  s = status -sb
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+[help]
+	autocorrect = 1
