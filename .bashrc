@@ -66,24 +66,6 @@ function seasprint() {
    cat "$1" | ssh davidxu@eniac.seas.upenn.edu lpr -P169 -o page-ranges=$2-$3 -o Duplex=DuplexNoTumble
 }
 
-# Block or unblock Facebook (taken from KH)
-blockfb() {
-    if [ -f /etc/hosts-fb ]; then # Facebook is blocked
-        read -sp "Are you sure you want to unblock Facebook? " response
-        if [ $response != "yes" ]; then
-            echo "Sorry, I guess you're not sure."
-        else
-            sudo mv /etc/hosts-fb /etc/hosts
-            echo "Facebook has been unblocked."
-        fi
-    else # Block Facebook
-        sudo cp /etc/hosts /etc/hosts-fb
-        sudo sh -c 'echo "127.0.0.1 facebook.com" >> /etc/hosts'
-        sudo sh -c 'echo "127.0.0.1 www.facebook.com" >> /etc/hosts'
-        sudo sh -c 'echo "127.0.0.1 https://www.facebook.com" >> /etc/hosts'
-        echo "Facebook has been blocked."
-    fi
-}
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -205,3 +187,4 @@ fi
 function cd_ls(){
   builtin cd "$@"; ls
 }
+

@@ -37,6 +37,8 @@ alias google-chrome='google-chrome --audio-buffer-size=2048'
 alias chrome='open -a Google\ Chrome --args --disable-web-security'
 alias venv='virtualenv'
 
+
+
 # editor-related
 # ain't no one usin' nothin but vim!
 alias vi='vim'
@@ -46,6 +48,8 @@ alias gedit='vim'
 # hack for YCM
 alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 alias mvim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim'
+# macvim, dyld for youcompleteme
+alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 /Applications/MacVim.app/Contents/MacOS/Vim'
 
 alias lvim="!vim" # lastvim
 
@@ -59,6 +63,9 @@ alias shutdown='sudo /sbin/shutdown'
 alias install='sudo apt-get install'
 alias uninstall='sudo apt-get rm'
 alias update='sudo apt-get update'
+
+# ssh
+alias eniac='ssh davidxu@eniac.seas.upenn.edu'
 
 # funny stuff
 alias ecco='cowsay_echo'

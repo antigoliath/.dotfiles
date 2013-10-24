@@ -36,3 +36,7 @@
 ehthumbs.db
 Thumbs.db
 .tern-port
+
+# Other #
+#########
+venv/
