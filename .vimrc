@@ -26,31 +26,36 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'skwp/vim-easymotion'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'tpope/vim-ragtag'
-Bundle 'klen/python-mode'
-Bundle 'nono/vim-handlebars'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'drichard/vim-brunch'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'roman/golden-ratio'
 Bundle 'suan/vim-instant-markdown'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
+
+" external
 Bundle 'marijnh/tern_for_vim'
+Bundle 'Valloric/MatchTagAlways'
+Bundle 'Valloric/YouCompleteMe'
+
+"language specific
 Bundle 'juvenn/mustache.vim'
+Bundle 'drichard/vim-brunch'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'klen/python-mode'
+Bundle 'nono/vim-handlebars'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'othree/javascript-libraries-syntax.vim'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -133,7 +138,7 @@ set tm=500
 
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+set foldcolumn=0
 
 
 
@@ -252,26 +257,26 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Map Control-# to switch tabs
-map  <C-0> 0gt
-imap <C-0> <Esc>0gt
-map  <C-1> 1gt
-imap <C-1> <Esc>1gt
-map  <C-2> 2gt
-imap <C-2> <Esc>2gt
-map  <C-3> 3gt
-imap <C-3> <Esc>3gt
-map  <C-4> 4gt
-imap <C-4> <Esc>4gt
-map  <C-5> 5gt
-imap <C-5> <Esc>5gt
-map  <C-6> 6gt
-imap <C-6> <Esc>6gt
-map  <C-7> 7gt
-imap <C-7> <Esc>7gt
-map  <C-8> 8gt
-imap <C-8> <Esc>8gt
-map  <C-9> 9gt
-imap <C-9> <Esc>9gt
+map  [0 0gt
+map  [1 1gt
+map  [2 2gt
+map  [3 3gt
+map  [4 4gt
+map  [5 5gt
+map  [6 6gt
+map  [7 7gt
+map  [8 8gt
+map  [9 9gt
+imap [0 <Esc>0gt
+imap [1 <Esc>1gt
+imap [2 <Esc>2gt
+imap [3 <Esc>3gt
+imap [4 <Esc>4gt
+imap [5 <Esc>5gt
+imap [6 <Esc>6gt
+imap [7 <Esc>7gt
+imap [8 <Esc>8gt
+imap [9 <Esc>9gt
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
@@ -490,11 +495,6 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BufferGator (deprecated by vim-airline/vim-bufferline)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nmap <leader>b :BuffergatorToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
