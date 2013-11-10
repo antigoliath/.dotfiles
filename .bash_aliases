@@ -49,7 +49,7 @@ alias gedit='vim'
 alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 alias mvim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim'
 # macvim, dyld for youcompleteme
-alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 /Applications/MacVim.app/Contents/MacOS/Vim'
+# alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 /Applications/MacVim.app/Contents/MacOS/Vim'
 
 alias lvim="!vim" # lastvim
 
