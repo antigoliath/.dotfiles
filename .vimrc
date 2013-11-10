@@ -257,26 +257,26 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Map Control-# to switch tabs
-map  [0 0gt
-map  [1 1gt
-map  [2 2gt
-map  [3 3gt
-map  [4 4gt
-map  [5 5gt
-map  [6 6gt
-map  [7 7gt
-map  [8 8gt
-map  [9 9gt
-imap [0 <Esc>0gt
-imap [1 <Esc>1gt
-imap [2 <Esc>2gt
-imap [3 <Esc>3gt
-imap [4 <Esc>4gt
-imap [5 <Esc>5gt
-imap [6 <Esc>6gt
-imap [7 <Esc>7gt
-imap [8 <Esc>8gt
-imap [9 <Esc>9gt
+map  \0 0gt
+map  \1 1gt
+map  \2 2gt
+map  \3 3gt
+map  \4 4gt
+map  \5 5gt
+map  \6 6gt
+map  \7 7gt
+map  \8 8gt
+map  \9 9gt
+imap \0 <Esc>0gt
+imap \1 <Esc>1gt
+imap \2 <Esc>2gt
+imap \3 <Esc>3gt
+imap \4 <Esc>4gt
+imap \5 <Esc>5gt
+imap \6 <Esc>6gt
+imap \7 <Esc>7gt
+imap \8 <Esc>8gt
+imap \9 <Esc>9gt
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
