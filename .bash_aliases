@@ -69,3 +69,21 @@ alias eniac='ssh davidxu@eniac.seas.upenn.edu'
 
 # funny stuff
 alias ecco='cowsay_echo'
+
+# git
+alias gco='git commit'
+alias gcom='git commit -m '
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gc='git clone'
+alias gch='git cherry-pick'
+alias gr='git rebase'
+alias gri='git rebase -i'
+alias grf='git reflog show'
+alias gd='git diff'
+alias gd='git diff'
+alias gps='git push'
+alias gpl='git pull'
+alias gf='git fetch'
+alias ga='git add'
+
