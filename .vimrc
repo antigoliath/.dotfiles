@@ -55,6 +55,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'elzr/vim-json'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
