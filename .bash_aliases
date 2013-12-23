@@ -87,3 +87,6 @@ alias gpl='git pull'
 alias gf='git fetch'
 alias ga='git add'
 
+# globals
+export EC2='ubuntu@davidxu.me'
+export do='root@198.199.119.65'

@@ -48,9 +48,6 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 else export TERM=xterm-color
 fi
 
-# globals
-export EC2='ubuntu@davidxu.me'
-
 function cowsay_echo(){
   # edge case
   if [ "$#" -eq 0 ]; then
