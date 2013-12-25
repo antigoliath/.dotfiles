@@ -257,6 +257,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Map C-w to splitting in that direction
+map <C-w>j :bel sp. <cr>
+map <C-w>k :sp. <cr>
+map <C-w>l :bel vs. <cr>
+map <C-w>h :vs. <cr>
+
 " Map Control-# to switch tabs
 map  \0 0gt
 map  \1 1gt
@@ -385,56 +391,60 @@ let g:yankring_history_dir = '~/.dotfiles/temp/'
 map <leader>n :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
+" always opens the buffer for the file if it already exists
+set hidden
 
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 
-" If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
+" TODO: Gives an error when :so %
+" " If the parameter is a directory, cd into it
+" function s:CdIfDirectory(directory)
+"   let explicitDirectory = isdirectory(a:directory)
+"   let directory = explicitDirectory || empty(a:directory)
 
-  if explicitDirectory
-    exe "cd " . fnameescape(a:directory)
-  endif
+"   if explicitDirectory
+"     exe "cd " . fnameescape(a:directory)
+"   endif
 
-  " Allows reading from stdin
-  " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0
-    return
-  endif
+"   " Allows reading from stdin
+"   " ex: git diff | mvim -R -
+"   if strlen(a:directory) == 0
+"     return
+"   endif
 
-  if directory
-    NERDTree
-    wincmd p
-    bd
-  endif
+"   if directory
+"     NERDTree
+"     wincmd p
+"     bd
+"   endif
 
-  if explicitDirectory
-    wincmd p
-  endif
-endfunction
+"   if explicitDirectory
+"     wincmd p
+"   endif
+" endfunction
 
-" NERDTree utility function
-function s:UpdateNERDTree(...)
-  let stay = 0
+" " NERDTree utility function
+" function s:UpdateNERDTree(...)
+"   let stay = 0
 
-  if(exists("a:1"))
-    let stay = a:1
-  end
+"   if(exists("a:1"))
+"     let stay = a:1
+"   end
 
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
-  endif
-endfunction
+"   if exists("t:NERDTreeBufName")
+"     let nr = bufwinnr(t:NERDTreeBufName)
+"     if nr != -1
+"       exe nr . "wincmd w"
+"       exe substitute(mapcheck("R"), "<CR>", "", "")
+"       if !stay
+"         wincmd p
+"       end
+"     endif
+"   endif
+" endfunction
 
-
+" hijack netrw
+let NERDTreeHijackNetrw=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

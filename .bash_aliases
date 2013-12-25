@@ -88,5 +88,5 @@ alias gf='git fetch'
 alias ga='git add'
 
 # globals
-export EC2='ubuntu@davidxu.me'
+export EC2='ubuntu@184.73.248.188'
 export do='root@198.199.119.65'
