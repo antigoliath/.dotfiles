@@ -198,7 +198,7 @@ set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
-set tw=500
+" set tw=500
 
 set autoindent "Auto indent
 set smartindent "Smart indent
@@ -366,7 +366,7 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 " Turn persistent undo on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-  set undodir=~/.dotfiles/temp/undos
+  set undodir=~/.files/temp/undos
   set undofile
 catch
 endtry
@@ -383,7 +383,7 @@ endtry
 """"""""""""""""""""""""""""""
 " => YankRing
 """"""""""""""""""""""""""""""
-let g:yankring_history_dir = '~/.dotfiles/temp/'
+let g:yankring_history_dir = '~/.files/temp/'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree

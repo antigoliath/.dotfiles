@@ -1,0 +1,42 @@
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
+
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+
+# Applications
+brew cask install google-chrome
+brew cask install alfred
+brew cask alfred link
+brew cask install spectacle
+brew cask install vlc
+brew cask install dropbox
+brew cask install iterm2
+brew cask install f-lux
+brew cask install transmission
+
+# install xcode
+brew install macvim --override-system-vim
+brew linkapps
+
+# CLI
+brew install node
+# npm installs with node now!
+
+
+
+# links
+ln -s ~/.files/.bashrc ~/.bashrc
+ln -s ~/.files/.bash_aliases ~/.bash_aliases
+ln -s ~/.files/.tmux.conf ~/.tmux.conf
+ln -s ~/.files/.vimrc ~/.vimrc
+ln -s ~/.files/.gitignore_global ~/.gitignore_global
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +BundleInstall +qall
+
+# configs
+git config --global color.ui true
+git config --global user.name "David"
+git config --global user.email "xudavidb@gmail.com"
+git config --global core.excludesfile ~/.gitignore_global

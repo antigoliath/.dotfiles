@@ -4,6 +4,7 @@
 export EDITOR='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 PATH=$PATH:~/.gem/ruby/2.0.0/bin #add gems
 export GEM_HOME=~/.gem/ruby/2.0.0
+export VISUAL='mvim -f'
 
 # git colors
 git config --global color.ui true
