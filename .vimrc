@@ -258,10 +258,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Map C-w to splitting in that direction
-map <C-w>j :bel sp. <cr>
-map <C-w>k :sp. <cr>
-map <C-w>l :bel vs. <cr>
-map <C-w>h :vs. <cr>
+" map <C-w>j :bel sp. <cr>
+" map <C-w>k :sp. <cr>
+" map <C-w>l :bel vs. <cr>
+" map <C-w>h :vs. <cr>
 
 " Map Control-# to switch tabs
 map  \0 0gt

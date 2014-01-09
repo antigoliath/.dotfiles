@@ -15,6 +15,7 @@ brew cask install dropbox
 brew cask install iterm2
 brew cask install f-lux
 brew cask install transmission
+brew cask install evernote
 
 # install xcode
 brew install macvim --override-system-vim
@@ -23,6 +24,8 @@ brew linkapps
 # CLI
 brew install node
 # npm installs with node now!
+brew install tig
+brew install ack
 
 
 
@@ -40,3 +43,15 @@ git config --global color.ui true
 git config --global user.name "David"
 git config --global user.email "xudavidb@gmail.com"
 git config --global core.excludesfile ~/.gitignore_global
+
+mkdir ~/Pictures/Screenshots
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+killall SystemUIServer
+
+
+
+
+# markdown stuff
+sudo gem install pygments.rb
+sudo gem install redcarpet
+sudo npm install -g instant-markdown-d
