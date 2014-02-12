@@ -87,6 +87,9 @@ alias gpl='git pull'
 alias gf='git fetch'
 alias ga='git add'
 
+# coding
+alias node='env NODE_NO_READLINE=1 rlwrap node'
+
 # globals
 export EC2='ubuntu@184.73.248.188'
 export do='root@198.199.119.65'

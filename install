@@ -17,6 +17,7 @@ brew cask install f-lux
 brew cask install transmission
 brew cask install evernote
 brew cask install caffeine
+brew cask install cloudup
 
 # install xcode
 brew install macvim --override-system-vim
@@ -28,6 +29,9 @@ brew install node
 brew install tig
 brew install ack
 brew install tmux
+brew install gpg
+# for node repl
+brew install rlwrap
 gem install bropages
 
 
