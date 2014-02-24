@@ -42,6 +42,7 @@ Bundle 'bling/vim-bufferline'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'sjl/vitality.vim'
 
 "language specific
 Bundle 'juvenn/mustache.vim'
@@ -51,9 +52,9 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'klen/python-mode'
 Bundle 'nono/vim-handlebars'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'groenewege/vim-less'
+Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'elzr/vim-json'
 
@@ -374,7 +375,7 @@ endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omni complete functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
