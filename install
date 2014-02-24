@@ -62,3 +62,10 @@ killall SystemUIServer
 sudo gem install pygments.rb
 sudo gem install redcarpet
 sudo npm install -g instant-markdown-d
+
+
+# npm
+npm install -g coffee-script
+npm install -g express
+npm install -g bower
+npm install -g grunt
