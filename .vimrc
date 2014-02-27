@@ -532,6 +532,7 @@ nmap <F4> :GoldenRatioToggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-bufferline

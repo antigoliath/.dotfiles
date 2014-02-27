@@ -43,6 +43,7 @@ ln -s ~/.files/.tmux.conf ~/.tmux.conf
 ln -s ~/.files/.vimrc ~/.vimrc
 ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/.jshintrc ~/.jshintrc
+ln -s ~/.files/.coffeelint.json ~/.coffeelint.json
 
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
@@ -71,9 +72,10 @@ npm install -g coffee-script
 npm install -g express
 npm install -g bower
 npm install -g grunt
+npm install -g coffeelint
+npm install -g jshint
 
 
 
 # vim
-npm install jshint -g
 
