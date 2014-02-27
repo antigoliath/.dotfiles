@@ -527,6 +527,11 @@ let g:miniBufExplCheckDupeBufs = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F4> :GoldenRatioToggle
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['jshint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-bufferline
