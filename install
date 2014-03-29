@@ -18,6 +18,8 @@ brew cask install transmission
 brew cask install evernote
 brew cask install caffeine
 brew cask install cloudup
+brew cask install the-unarchiver
+brew cask install jumpcut
 
 # install xcode
 brew install macvim --override-system-vim
@@ -74,6 +76,7 @@ npm install -g bower
 npm install -g grunt
 npm install -g coffeelint
 npm install -g jshint
+npm install -g json
 
 
 
