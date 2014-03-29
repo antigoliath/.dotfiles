@@ -12,7 +12,12 @@ set t_ut=
 " for 'b'
 set iskeyword-=_
 
-Bundle 'fu'
+" for system clipping
+if $TMUX == ''
+  set clipboard=unnamed
+endif
+
+Bundle 'flazz/vim-colorschemes'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
@@ -60,6 +65,11 @@ Bundle 'elzr/vim-json'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Language Specific
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.ejs set filetype=html
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -98,6 +108,7 @@ set wildignore+=*.swp,*~,._*
 "Always show current position
 set ruler
 set number
+set cursorline
 
 " Height of the command bar
 set cmdheight=2
@@ -143,7 +154,6 @@ set tm=500
 set foldcolumn=0
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,6 +179,10 @@ elseif has("linux")
   set gfn=Monospace\ 10
   set shell=/bin/bash
 endif
+
+" character limit
+execute "set colorcolumn=" . join(range(81,335), ',')
+hi ColorColumn ctermbg=233 ctermbg=233 guibg=#1a1a1a guifg=#1a1a1a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
