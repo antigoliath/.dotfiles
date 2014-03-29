@@ -192,3 +192,5 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export COFFEELINT_CONFIG=~/.coffeelintrc
 
 source ~/.files/.git-completion.bash
+
+set -o vi
