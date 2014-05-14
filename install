@@ -20,6 +20,8 @@ brew cask install caffeine
 brew cask install cloudup
 brew cask install the-unarchiver
 brew cask install jumpcut
+brew cask install sketch
+brew cask install steam
 
 # install xcode
 brew install macvim --override-system-vim
