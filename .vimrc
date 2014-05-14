@@ -42,6 +42,7 @@ Bundle 'roman/golden-ratio'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
+Bundle 'terryma/vim-multiple-cursors'
 
 " external
 Bundle 'marijnh/tern_for_vim'
@@ -300,10 +301,41 @@ imap \7 <Esc>7gt
 imap \8 <Esc>8gt
 imap \9 <Esc>9gt
 
+
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap ]l :ls<CR>
+
+nnoremap ]1 :1b<CR>
+nnoremap ]2 :2b<CR>
+nnoremap ]3 :3b<CR>
+nnoremap ]4 :4b<CR>
+nnoremap ]5 :5b<CR>
+nnoremap ]6 :6b<CR>
+nnoremap ]7 :7b<CR>
+nnoremap ]8 :8b<CR>
+nnoremap ]9 :9b<CR>
+nnoremap ]0 :10b<CR>
+nnoremap [1 :1b<CR>
+nnoremap [2 :2b<CR>
+nnoremap [3 :3b<CR>
+nnoremap [4 :4b<CR>
+nnoremap [5 :5b<CR>
+nnoremap [6 :6b<CR>
+nnoremap [7 :7b<CR>
+nnoremap [8 :8b<CR>
+nnoremap [9 :9b<CR>
+nnoremap [0 :10b<CR>
+" It's useful to show the buffer number in the status line.
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
 " mappings to access buffers, [b and ]b for back and forward,
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
 " [v, ]v, go to last visited buffers
 nnoremap [v :e#<CR>
 nnoremap ]v :e#<CR>
