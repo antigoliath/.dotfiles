@@ -190,7 +190,7 @@ export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export COFFEELINT_CONFIG=~/.coffeelintrc
+export SESSION_STORE=redis
 
 source ~/.files/.git-completion.bash
 
-set -o vi
