@@ -7,6 +7,10 @@ set shell=/bin/sh
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+
+" for my broken hand...
+set mouse=a
+
 set t_ut=
 
 " for 'b'
