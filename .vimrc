@@ -67,6 +67,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'elzr/vim-json'
+Bundle 'fatih/vim-go'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
