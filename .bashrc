@@ -175,11 +175,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# have it show it after changing
-function cd_ls(){
-  builtin cd "$@"; ls
-}
-
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

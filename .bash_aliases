@@ -7,8 +7,8 @@ alias monitorr='monitor_right'
 alias monitorl='monitor_left'
 # navigation aliases
 
-alias ls='ls -G'
-alias ll='ls -alF'
+alias ls='ls -FG'
+alias ll='ls -la'
 alias la='ls -A'
 alias l='ls -CF'
 alias lla='ls -la'
@@ -18,6 +18,12 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias sl='sl -al'
 alias less-watch="watchr -e 'watch(".*\.less$") { |f| system("lessc #{f[0]} > #{f[0]}.css") }'"
+
+
+# have it show it after changing
+function cd_ls(){
+  builtin cd "$@"; ls
+}
 alias cd='cd_ls'
 
 # ssh
