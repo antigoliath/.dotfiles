@@ -771,3 +771,9 @@ let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
 let g:pymode_syntax_slow_sync = 0
 
 " for coffeetags: https://github.com/lukaszkorecki/CoffeeTags/issues
+
+
+
+" YCM
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_complete_in_comments = 1
