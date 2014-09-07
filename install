@@ -23,6 +23,9 @@ brew cask install jumpcut
 brew cask install sketch
 brew cask install steam
 
+brew cask install istat-menus
+brew cask install notational-velocity
+
 # install xcode
 brew install macvim --override-system-vim
 brew linkapps
@@ -37,6 +40,7 @@ brew install gpg
 # for node repl
 brew install rlwrap
 gem install bropages
+brew install cgdb
 
 
 
@@ -86,3 +90,26 @@ npm install -g json
 # vim
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
+
+
+# GO - MUST UPDATE VERSION AND LOCATION:
+brew install hg
+brew install go
+GOPATH=/usr/local/Cellar/go/1.3/bin/
+ export GOPATH
+
+
+
+
+git clone git://github.com/facebook/libphutil.git ~/tools/
+git clone git://github.com/facebook/arcanist.git ~/tools/
+
+
+if [ -e /home/vagrant/.gvm/scripts/gvm ]; then
+    echo "GVM already installed. Skipping."
+else
+    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+    source ~/.gvm/scripts/gvm
+    gvm install go1.2.2
+fi
+
