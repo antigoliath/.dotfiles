@@ -22,7 +22,7 @@ if $TMUX == ''
 endif
 
 Bundle 'flazz/vim-colorschemes'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ddollar/nerdcommenter'
@@ -47,6 +47,7 @@ Bundle 'suan/vim-instant-markdown'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'int3/vim-extradite'
 
 " external
 Bundle 'marijnh/tern_for_vim'
@@ -778,3 +779,20 @@ let g:pymode_syntax_slow_sync = 0
 " YCM
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ack.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>a :Ack<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" extradite.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>tg :Extradite<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-go.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:go_fmt_autosave = 0
