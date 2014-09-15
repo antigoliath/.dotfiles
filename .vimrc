@@ -4,10 +4,6 @@ filetype off                   " required!
 " non standard bash
 set shell=/bin/sh
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-
 " for my broken hand...
 set mouse=a
 
@@ -21,63 +17,70 @@ if $TMUX == ''
   set clipboard=unnamed
 endif
 
-Bundle 'flazz/vim-colorschemes'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'chrisbra/NrrwRgn'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'skwp/vim-easymotion'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'tmhedberg/matchit'
-Bundle 'tpope/vim-ragtag'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'roman/golden-ratio'
-Bundle 'suan/vim-instant-markdown'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'int3/vim-extradite'
-Bundle 'tpope/vim-commentary'
+
+" Core
+"
+call plug#begin('~/.vim/plugged')
+
+Plug 'flazz/vim-colorschemes'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'chrisbra/NrrwRgn'
+Plug 'tpope/vim-unimpaired'
+Plug 'skwp/vim-easymotion'
+Plug 'vim-scripts/ZoomWin'
+Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-ragtag'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/vimshell.vim'
+Plug 'roman/golden-ratio'
+Plug 'suan/vim-instant-markdown'
+Plug 'bling/vim-airline'
+Plug 'bling/vim-bufferline'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'int3/vim-extradite'
+Plug 'tpope/vim-commentary'
 
 " experimenting
-Bundle 'junegunn/vim-easy-align'
-Bundle 'junegunn/vim-emoji'
-Bundle 'ConradIrwin/vim-bracketed-paste'
-Bundle 'justinmk/vim-gtfo'
-Bundle 'Keithbsmiley/investigate.vim'
-Bundle 'junegunn/vim-after-object'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-emoji'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'justinmk/vim-gtfo'
+Plug 'Keithbsmiley/investigate.vim'
+Plug 'junegunn/vim-after-object'
 
 " external
-Bundle 'marijnh/tern_for_vim'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'sjl/vitality.vim'
+Plug 'marijnh/tern_for_vim'
+Plug 'Valloric/MatchTagAlways'
+Plug 'Valloric/YouCompleteMe'
+Plug 'sjl/vitality.vim'
 
 "language specific
-Bundle 'juvenn/mustache.vim'
-Bundle 'drichard/vim-brunch'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'klen/python-mode'
-Bundle 'nono/vim-handlebars'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'elzr/vim-json'
-Bundle 'fatih/vim-go'
+Plug 'juvenn/mustache.vim'
+Plug 'drichard/vim-brunch'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'klen/python-mode'
+Plug 'nono/vim-handlebars'
+Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'groenewege/vim-less'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
 
+
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific
