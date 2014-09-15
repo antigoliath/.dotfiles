@@ -71,6 +71,20 @@ killall SystemUIServer
 # 2d dock
 defaults write com.apple.dock no-glass -boolean YES
 
+# show only active apps
+defaults write com.apple.dock static-only -bool TRUE
+
+# suck animation
+defaults write com.apple.dock mineffect suck
+
+# left side dock
+defaults write com.apple.dock pinning -string start
+
+# dim hidden items
+defaults write com.apple.dock showhidden -bool true
+
+# cdock
+brew cask install cdock
 
 # markdown stuff
 sudo gem install pygments.rb
