@@ -47,6 +47,7 @@ Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'int3/vim-extradite'
+Bundle 'tpope/vim-commentary'
 
 " experimenting
 Bundle 'junegunn/vim-easy-align'
@@ -446,6 +447,14 @@ set omnifunc=syntaxcomplete#Complete
 " => YankRing
 """"""""""""""""""""""""""""""
 let g:yankring_history_dir = '~/.files/temp/'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-commentary
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vmap <leader>c <Plug>Commentary
+nmap <leader>c <Plug>CommentaryLine
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
