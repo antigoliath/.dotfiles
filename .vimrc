@@ -98,6 +98,10 @@ nmap <leader>q :q<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" keep on same column
+set nostartofline
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=3
 
