@@ -49,6 +49,10 @@ Bundle 'bling/vim-bufferline'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'int3/vim-extradite'
 
+" experimenting
+Bundle 'junegunn/vim-easy-align'
+Bundle 'junegunn/vim-emoji'
+
 " external
 Bundle 'marijnh/tern_for_vim'
 Bundle 'Valloric/MatchTagAlways'
