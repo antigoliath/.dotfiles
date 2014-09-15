@@ -25,7 +25,6 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ddollar/nerdcommenter'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
@@ -524,13 +523,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|swp|o)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDCommenter
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-map <leader>c <plug>NERDCommenterToggle<CR>
-imap <leader>c <Esc><plug>NERDCommenterToggle<CR>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar
