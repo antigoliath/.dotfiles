@@ -55,6 +55,7 @@ Bundle 'junegunn/vim-emoji'
 Bundle 'ConradIrwin/vim-bracketed-paste'
 Bundle 'justinmk/vim-gtfo'
 Bundle 'Keithbsmiley/investigate.vim'
+Bundle 'junegunn/vim-after-object'
 
 " external
 Bundle 'marijnh/tern_for_vim'
