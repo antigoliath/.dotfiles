@@ -52,6 +52,8 @@ Bundle 'int3/vim-extradite'
 " experimenting
 Bundle 'junegunn/vim-easy-align'
 Bundle 'junegunn/vim-emoji'
+Bundle 'ConradIrwin/vim-bracketed-paste'
+Bundle 'justinmk/vim-gtfo'
 
 " external
 Bundle 'marijnh/tern_for_vim'
