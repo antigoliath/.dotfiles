@@ -68,6 +68,8 @@ defaults write com.apple.screencapture location ~/Pictures/Screenshots
 killall SystemUIServer
 
 
+# 2d dock
+defaults write com.apple.dock no-glass -boolean YES
 
 
 # markdown stuff
