@@ -57,6 +57,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'justinmk/vim-gtfo'
 Plug 'Keithbsmiley/investigate.vim'
 Plug 'junegunn/vim-after-object'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " external
 Plug 'marijnh/tern_for_vim'
@@ -812,3 +813,12 @@ nmap <leader>tg :Extradite<cr>
 " vim-go.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_fmt_autosave = 0
+
+"""""""""""""""""""""""
+" indentGuide
+"""""""""""""""""""""""
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234 guibg=#1a1a1a guifg=#1a1a1a
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a guifg=#1a1a1a
