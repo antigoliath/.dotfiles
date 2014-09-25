@@ -3,6 +3,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 brew tap phinze/homebrew-cask
 brew install brew-cask
+brew tap caskroom/versions
 
 
 # Applications
@@ -22,6 +23,9 @@ brew cask install the-unarchiver
 brew cask install jumpcut
 brew cask install sketch
 brew cask install steam
+brew cask install licecap
+brew cask install imageoptim
+brew cask install skype
 
 brew cask install dash
 
