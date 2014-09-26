@@ -19,6 +19,7 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+export PATH=~/tools/arcanist/bin/:$PATH
 # ctags on mac
 export PATH="/usr/local/bin:$PATH"
 # python stuff on mac
@@ -185,7 +186,17 @@ export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export COFFEELINT_CONFIG=~/.coffeelintrc
-export SESSION_STORE=redis
+export APP_SERVER_STORE=redis
+
+export GOPATH=/usr/local/Cellar/go/1.3/bin/
+
+source ~/.gvm/scripts/gvm
+
+gvm use system
+
+# upthere definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 source ~/.files/.git-completion.bash
-

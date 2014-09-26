@@ -50,8 +50,8 @@ alias venv='virtualenv'
 # ain't no one usin' nothin but vim!
 alias vi='vim'
 # alias emacs='vim'
-alias nano='vim'
-alias gedit='vim'
+# alias nano='vim'
+# alias gedit='vim'
 # hack for YCM
 alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 alias mvim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim'
@@ -99,6 +99,13 @@ alias node='env NODE_NO_READLINE=1 rlwrap node'
 
 alias mouse_accel_off='defaults write .GlobalPreferences com.apple.mouse.scaling 0'
 alias mouse_accel_on='defaults write .GlobalPreferences com.apple.mouse.scaling 1'
+
+alias up='cd ~/code/upthere/core/upthere/'
+alias uprest='cd ~/code/upthere/core/upthere/ ; bin/rest_bridge --env=staging'
+alias upweb='cd /Users/davidxu/code/upthere/web/upweb'
+alias vagr='cd /Users/davidxu/code/upthere/vagrant/'
+alias vagssh='cd /Users/davidxu/code/upthere/vagrant/ubuntu-dev ; vagrant ssh'
+alias vagdev='cd /Users/davidxu/code/upthere/vagrant/common_dev/dev'
 
 # globals
 export EC2='ubuntu@184.73.248.188'
