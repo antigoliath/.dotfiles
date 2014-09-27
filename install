@@ -31,6 +31,7 @@ brew cask install dash
 
 brew cask install istat-menus
 brew cask install notational-velocity
+brew cask install colorpicker-skalacolor
 
 # install xcode
 brew install macvim --override-system-vim
