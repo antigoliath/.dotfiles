@@ -1,20 +1,20 @@
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-
-brew tap phinze/homebrew-cask
+brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
 
 
 # Applications
 brew cask install google-chrome
+# brew cask install google-chrome-canary
 brew cask install alfred
 brew cask alfred link
 brew cask install spectacle
 brew cask install vlc
 brew cask install dropbox
 brew cask install iterm2
-brew cask install f-lux
+brew cask install flux
 brew cask install transmission
 brew cask install evernote
 brew cask install caffeine
@@ -26,6 +26,7 @@ brew cask install steam
 brew cask install licecap
 brew cask install imageoptim
 brew cask install skype
+brew cask install cdock
 
 brew cask install dash
 
@@ -48,6 +49,7 @@ brew install gpg
 brew install rlwrap
 gem install bropages
 brew install cgdb
+brew install hub
 
 
 
