@@ -14,9 +14,11 @@ git config --global color.ui true
 # [ ! "$UID" = "0" ] && archbey2
 
 # git completion
-# source /usr/share/git/completion/git-completion.bash
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+if [ -f ~/.files/scripts/hub.bash_completion.sh ]; then
+  . ~/.files/scripts/hub.bash_completion.sh
+fi
+if [ -f ~/.files/scripts/.git-completion.bash ]; then
+  . ~/.files/scripts/.git-completion.bash
 fi
 
 export PATH=~/tools/arcanist/bin/:$PATH
