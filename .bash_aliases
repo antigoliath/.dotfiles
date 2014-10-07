@@ -96,16 +96,18 @@ alias ga='git add'
 
 # coding
 alias node='env NODE_NO_READLINE=1 rlwrap node'
+alias git='hub'
 
 alias mouse_accel_off='defaults write .GlobalPreferences com.apple.mouse.scaling 0'
 alias mouse_accel_on='defaults write .GlobalPreferences com.apple.mouse.scaling 1'
 
-alias up='cd ~/code/upthere/core/upthere/'
+alias up='cd ~/code/upthere/upthere/'
 alias uprest='cd ~/code/upthere/core/upthere/ ; bin/rest_bridge --env=staging'
-alias upweb='cd /Users/davidxu/code/upthere/web/upweb'
+alias upweb='cd /Users/davidxu/code/upthere/upweb'
 alias vagr='cd /Users/davidxu/code/upthere/vagrant/'
 alias vagssh='cd /Users/davidxu/code/upthere/vagrant/ubuntu-dev ; vagrant ssh'
 alias vagdev='cd /Users/davidxu/code/upthere/vagrant/common_dev/dev'
+
 
 # globals
 export EC2='ubuntu@184.73.248.188'
