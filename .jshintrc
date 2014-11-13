@@ -21,9 +21,9 @@
                                 //   true     : ensure whatever is used is consistent
                                 //   "single" : require single quotes
                                 //   "double" : require double quotes
-    "undef"         : true,     // true: Require all non-global variables to be declared (prevents global leaks)
+    "undef"         : false,     // true: Require all non-global variables to be declared (prevents global leaks)
     "unused"        : true,     // true: Require all defined variables be used
-    "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
+    "strict"        : false,     // true: Requires all functions run in ES5 Strict Mode
     "trailing"      : false,    // true: Prohibit trailing whitespaces
     "maxparams"     : false,    // {int} Max number of formal params allowed per function
     "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
@@ -47,7 +47,7 @@
     "iterator"      : false,     // true: Tolerate using the `__iterator__` property
     "lastsemic"     : false,     // true: Tolerate omitting a semicolon for the last statement of a 1-line block
     "laxbreak"      : false,     // true: Tolerate possibly unsafe line breakings
-    "laxcomma"      : false,     // true: Tolerate comma-first style coding
+    "laxcomma"      : true,     // true: Tolerate comma-first style coding
     "loopfunc"      : false,     // true: Tolerate functions being defined in loops
     "multistr"      : false,     // true: Tolerate multi-line strings
     "proto"         : false,     // true: Tolerate using the `__proto__` property
