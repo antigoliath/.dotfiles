@@ -1,4 +1,5 @@
 [user]
+	name = David
 	email = xudavidb@gmail.com
 [color]
 	ui = true
@@ -10,6 +11,6 @@
   br = branch
   co = checkout
   df = diff
-  lg = log -p
+  lg =  log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [help]
 	autocorrect = 1
