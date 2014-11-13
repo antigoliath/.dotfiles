@@ -608,7 +608,7 @@ let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='light'
+let g:airline_theme='jellybeans'
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
