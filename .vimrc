@@ -45,7 +45,6 @@ Plug 'Shougo/vimshell.vim'
 Plug 'roman/golden-ratio'
 Plug 'suan/vim-instant-markdown'
 Plug 'bling/vim-airline'
-Plug 'bling/vim-bufferline'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'int3/vim-extradite'
 Plug 'tpope/vim-commentary'
@@ -79,6 +78,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
+Plug 'mattn/emmet-vim'
 
 
 call plug#end()
@@ -151,6 +151,8 @@ set smartcase
 
 " Highlight search results
 set hlsearch
+
+nmap // :noh<CR>
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -534,7 +536,7 @@ map <C-p> :CtrlP<CR>
 imap <C-p> <ESC>:CtrlP<CR>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components',
   \ 'file': '\v\.(exe|so|dll|swp|o)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -604,16 +606,15 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-bufferline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:bufferline_echo=0
-set statusline=%{bufferline#generate_string()}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme='light'
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
