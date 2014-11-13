@@ -108,6 +108,8 @@ alias vagr='cd /Users/davidxu/code/upthere/vagrant/'
 alias vagssh='cd /Users/davidxu/code/upthere/vagrant/ubuntu-dev ; vagrant ssh'
 alias vagdev='cd /Users/davidxu/code/upthere/vagrant/common_dev/dev'
 
+alias jshint='jshint --config ~/.files/.jshintrc'
+
 
 # globals
 export EC2='ubuntu@184.73.248.188'
