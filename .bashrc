@@ -21,11 +21,9 @@ if [ -f ~/.files/scripts/.git-completion.bash ]; then
   . ~/.files/scripts/.git-completion.bash
 fi
 
-export PATH=~/tools/arcanist/bin/:$PATH
+export PATH=~/tools/arcanist/bin:$PATH
 # ctags on mac
 export PATH="/usr/local/bin:$PATH"
-# python stuff on mac
-export PATH=/usr/local/share/python:$PATH
 # fix for YCM vim:
 DYLD_FORCE_FLAT_NAMESPACE=1
 
