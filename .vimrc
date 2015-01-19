@@ -81,6 +81,12 @@ Plug 'fatih/vim-go'
 Plug 'mattn/emmet-vim'
 
 
+" ios
+Plug 'eraserhd/vim-ios/'
+Plug 'msanders/cocoa.vim'
+Plug 'toyamarinyon/vim-swift'
+
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
