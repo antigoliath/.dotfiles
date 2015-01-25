@@ -53,6 +53,7 @@ brew install hub
 
 
 
+
 # links
 ln -s ~/.files/.bashrc ~/.bashrc
 ln -s ~/.files/.bash_profile ~/.bash_profile
@@ -140,6 +141,7 @@ curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh >
 source antigen.zsh
 
 chsh -s /usr/local/bin/zsh
+
 
 
 
