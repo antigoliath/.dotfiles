@@ -57,6 +57,7 @@ Plug 'justinmk/vim-gtfo'
 Plug 'Keithbsmiley/investigate.vim'
 Plug 'junegunn/vim-after-object'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'begriffs/haskell-vim-now'
 
 " external
 Plug 'marijnh/tern_for_vim'

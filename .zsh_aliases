@@ -17,7 +17,6 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias sl='sl -al'
-alias less-watch="watchr -e 'watch(".*\.less$") { |f| system("lessc #{f[0]} > #{f[0]}.css") }'"
 
 
 # have it show it after changing

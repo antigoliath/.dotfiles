@@ -39,3 +39,6 @@ export PATH=~/tools/arcanist/bin:$PATH
 # ctags on mac
 export PATH="/usr/local/bin:$PATH"
 export EDITOR='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
+
+. ~/.zsh_aliases
+

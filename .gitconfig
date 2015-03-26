@@ -5,6 +5,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = input
 [alias]
   s = status -sb
   ci = commit
