@@ -27,6 +27,7 @@ brew cask install licecap
 brew cask install imageoptim
 brew cask install skype
 brew cask install cdock
+brew cask install scroll-reverser
 
 brew cask install dash
 
