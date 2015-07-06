@@ -60,7 +60,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'begriffs/haskell-vim-now'
 
 " external
-Plug 'marijnh/tern_for_vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'Valloric/YouCompleteMe'
 Plug 'sjl/vitality.vim'
@@ -228,7 +227,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " enable javascript code folding
-au FileType javascript call JavaScriptFold()
+" au FileType javascript call JavaScriptFold()
 
 " automatically remove whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -372,7 +371,7 @@ nnoremap [v :e#<CR>
 nnoremap ]v :e#<CR>
 
 " delete current buffer
-nnoremap \bd :Kwbd<CR>
+nnoremap \bd :bd<CR>
 
 nnoremap \bq :bd<CR>
 
@@ -545,7 +544,7 @@ map <C-p> :CtrlP<CR>
 imap <C-p> <ESC>:CtrlP<CR>
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
   \ 'file': '\v\.(exe|so|dll|swp|o)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
@@ -558,7 +557,7 @@ map <leader>rt :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>gb :Gblame<CR>
+map <leader>gb :Gblame -w<CR>
 map <leader>gs :Gstatus<CR>
 map <leader>gd :Gdiff<CR>
 map <leader>dg :diffget<CR>
@@ -610,9 +609,19 @@ nmap <F4> :GoldenRatioToggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eshint']
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
@@ -833,75 +842,4 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234 guibg=#1a1a1a guifg=#1a1a1a
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a guifg=#1a1a1a
 
-
-
-
-
-
-
-
-"""""""""""""""""""""""""""""""""""""
-" SCRIPTS
-"""""""""""""""""""""""""""""""""""""
-
-" http://vim.wikia.com/wiki/Deleting_a_buffer_without_closing_the_window
-"delete the buffer; keep windows; create a scratch buffer if no buffers left
-function s:Kwbd(kwbdStage)
-  if(a:kwbdStage == 1)
-    if(!buflisted(winbufnr(0)))
-      bd!
-      return
-    endif
-    let s:kwbdBufNum = bufnr("%")
-    let s:kwbdWinNum = winnr()
-    windo call s:Kwbd(2)
-    execute s:kwbdWinNum . 'wincmd w'
-    let s:buflistedLeft = 0
-    let s:bufFinalJump = 0
-    let l:nBufs = bufnr("$")
-    let l:i = 1
-    while(l:i <= l:nBufs)
-      if(l:i != s:kwbdBufNum)
-        if(buflisted(l:i))
-          let s:buflistedLeft = s:buflistedLeft + 1
-        else
-          if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
-            let s:bufFinalJump = l:i
-          endif
-        endif
-      endif
-      let l:i = l:i + 1
-    endwhile
-    if(!s:buflistedLeft)
-      if(s:bufFinalJump)
-        windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
-      else
-        enew
-        let l:newBuf = bufnr("%")
-        windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
-      endif
-      execute s:kwbdWinNum . 'wincmd w'
-    endif
-    if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
-      execute "bd! " . s:kwbdBufNum
-    endif
-    if(!s:buflistedLeft)
-      set buflisted
-      set bufhidden=delete
-      set buftype=
-      setlocal noswapfile
-    endif
-  else
-    if(bufnr("%") == s:kwbdBufNum)
-      let prevbufvar = bufnr("#")
-      if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
-        b #
-      else
-        bn
-      endif
-    endif
-  endif
-endfunction
-
-nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
 
