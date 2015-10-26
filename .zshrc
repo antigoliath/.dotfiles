@@ -42,3 +42,7 @@ export EDITOR='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
 
 . ~/.zsh_aliases
 
+export PATH=$PATH:/Users/davidxu/code/upthere/upcode/node/upweb/bin
+
+export NVM_DIR="/Users/davidxu/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
