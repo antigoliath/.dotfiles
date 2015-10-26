@@ -26,8 +26,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'zhaocai/GoldenView.Vim'  " Plug 'roman/golden-ratio'
 
 Plug 'flazz/vim-colorschemes'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'  " For faster ctrlp matching
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'FelikZ/ctrlp-py-matcher'  " For faster ctrlp matching
+
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 
@@ -95,6 +98,7 @@ Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
 Plug 'marijnh/tern_for_vim'
+Plug 'dag/vim-fish'
 
 
 """"""" REMOVED
@@ -188,7 +192,7 @@ set smartcase
 " Highlight search results
 set hlsearch
 
-" nmap // :noh<CR>
+nmap // :noh<CR>
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -533,30 +537,48 @@ let NERDTreeIgnore=[
 " hijack netrw
 let NERDTreeHijackNetrw=1
 
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" looks for project root - see https://github.com/junegunn/fzf/issues/369
+function! s:find_root()
+  for vcs in ['.git', '.svn', '.hg']
+    let dir = finddir(vcs.'/..', ';')
+    if !empty(dir)
+      execute 'Files' dir
+      return
+    endif
+  endfor
+  Files
+endfunction
+
+command! FZFR call s:find_root()
+
+map <C-p> :FZFR<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_height = 20
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-map <C-p> :CtrlP<CR>
-imap <C-p> <ESC>:CtrlP<CR>
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_max_height = 20
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" map <C-p> :CtrlP<CR>
+" imap <C-p> <ESC>:CtrlP<CR>
 
-if executable('ag')
-  " NOTE: should use global .agignore for ignoring files!
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-        \ -g ""
-        \ '
-else
-  let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
-    \ 'file': '\v\.(exe|so|dll|swp|o)$',
-    \ 'link': 'some_bad_symbolic_links',
-    \ }
-endif
+" if executable('ag')
+"   " NOTE: should use global .agignore for ignoring files!
+"   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+"         \ -g ""
+"         \ '
+" else
+"   let g:ctrlp_custom_ignore = {
+"     \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
+"     \ 'file': '\v\.(exe|so|dll|swp|o)$',
+"     \ 'link': 'some_bad_symbolic_links',
+"     \ }
+" endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -672,6 +694,14 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+let g:EasyMotion_smartcase = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoComplete
