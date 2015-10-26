@@ -64,6 +64,7 @@ ln -s ~/.files/.vimrc ~/.vimrc
 ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/.jshintrc ~/.jshintrc
 ln -s ~/.files/.coffeelint.json ~/.coffeelint.json
+ln -s ~/.files/.agignore ~/.agignore
 
 mkdir -p ~/.vim/autoload
 curl -fLo ~/.vim/autoload/plug.vim \
