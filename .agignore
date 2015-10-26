@@ -18,3 +18,5 @@ vendor/
 *.woff
 *.ttf
 *.psd
+
+3rdparty/
