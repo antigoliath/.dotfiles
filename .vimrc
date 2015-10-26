@@ -1,3 +1,5 @@
+let mapleader=','
+
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -34,8 +36,8 @@ Plug 'scrooloose/syntastic'
 " " i want to replace
 Plug 'tpope/vim-fugitive'
 
-" " not using lightline because it does not and will not support top bar tabline
-" Plug 'bling/vim-airline' " Plug 'itchyny/lightline.vim'
+" not using lightline because it does not and will not support top bar tabline
+Plug 'bling/vim-airline' " Plug 'itchyny/lightline.vim'
 " Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
@@ -45,7 +47,8 @@ Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-ragtag'
 Plug 'chrisbra/NrrwRgn'
 
-Plug 'justinmk/vim-sneak'  " Plug 'skwp/vim-easymotion'
+" Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
@@ -55,11 +58,10 @@ Plug 'tpope/vim-commentary'
 
 Plug 'nathanaelkane/vim-indent-guides'
 
-
-
 " " experimenting
 Plug 'Keithbsmiley/investigate.vim'
 Plug 'junegunn/vim-after-object'
+Plug 'Shougo/neocomplete.vim'
 
 """ EXPERIMENTATION SETUP BEGIN
 " vim-after-object
@@ -186,7 +188,7 @@ set smartcase
 " Highlight search results
 set hlsearch
 
-nmap // :noh<CR>
+" nmap // :noh<CR>
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -576,10 +578,8 @@ imap <C-p> <ESC>:CtrlP<CR>
 
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-        \ --ignore "\.(git|hg|svn|DS_STORE)$|node_modules|venv|bower_components|tmp(\/)?"
-        \ --ignore "**/*.pyc"
-        \ --ignore "\v\.(exe|so|dll|swp|o)$"
-        \ -g ""'
+        \ -g ""
+        \ '
 else
   let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
@@ -605,19 +605,6 @@ map <leader>gP :Git pull
 map <leader>gp :Git push
 map <leader>g :Git
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabular
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=','
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -641,9 +628,9 @@ let g:goldenview__enable_default_mapping = 0
 " syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
@@ -651,9 +638,9 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
-
-" " because ycm doesn't support javascript
-" let g:ycm_register_as_syntastic_checker = 0
+let g:syntastic_mode_map = {
+      \ "mode": "passive"
+      \ }
 
 map <leader>ss :Errors<CR>
 map <leader>sc :lclose<CR>
@@ -694,22 +681,112 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234 guibg=#1a1a1a guifg=#1a1a1a
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a guifg=#1a1a1a
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-sneak
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:sneak#streak = 1
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " vim-sneak
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:sneak#streak = 1
 
-nmap f <Plug>Sneak_s
-nmap F <Plug>Sneak_S
-xmap f <Plug>Sneak_s
-xmap F <Plug>Sneak_S
-omap f <Plug>Sneak_s
-omap F <Plug>Sneak_S
+" nmap f <Plug>Sneak_s
+" nmap F <Plug>Sneak_S
+" xmap f <Plug>Sneak_s
+" xmap F <Plug>Sneak_S
+" omap f <Plug>Sneak_s
+" omap F <Plug>Sneak_S
 
-"replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
+" "replace 't' with 1-char Sneak
+" nmap t <Plug>Sneak_t
+" nmap T <Plug>Sneak_T
+" xmap t <Plug>Sneak_t
+" xmap T <Plug>Sneak_T
+" omap t <Plug>Sneak_t
+" omap T <Plug>Sneak_T
+
+
+
+""""""""""""
+" easymotion
+""""""""""""
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoComplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
