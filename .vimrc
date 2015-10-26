@@ -12,79 +12,107 @@ set t_ut=
 " for 'b'
 set iskeyword-=_
 
+" always show status bar
+set laststatus=2
+
 " for system clipping
 if $TMUX == ''
   set clipboard=unnamed
 endif
 
-
 " Core
 "
 call plug#begin('~/.vim/plugged')
+Plug 'zhaocai/GoldenView.Vim'  " Plug 'roman/golden-ratio'
 
 Plug 'flazz/vim-colorschemes'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'  " For faster ctrlp matching
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+
+" " i want to replace
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+
+" " not using lightline because it does not and will not support top bar tabline
+" Plug 'bling/vim-airline' " Plug 'itchyny/lightline.vim'
+" Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
-Plug 'majutsushi/tagbar'
-Plug 'chrisbra/NrrwRgn'
+
 Plug 'tpope/vim-unimpaired'
-Plug 'skwp/vim-easymotion'
-Plug 'vim-scripts/ZoomWin'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-ragtag'
-Plug 'godlygeek/tabular'
+Plug 'chrisbra/NrrwRgn'
+
+Plug 'justinmk/vim-sneak'  " Plug 'skwp/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'Raimondi/delimitMate'
-Plug 'Shougo/vimshell.vim'
-Plug 'roman/golden-ratio'
-Plug 'suan/vim-instant-markdown'
-Plug 'bling/vim-airline'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'int3/vim-extradite'
+
+Plug 'jiangmiao/auto-pairs'  " Plug 'Raimondi/delimitMate'
+Plug 'plasticboy/vim-markdown'  " Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-commentary'
 
-" experimenting
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-emoji'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'justinmk/vim-gtfo'
+Plug 'nathanaelkane/vim-indent-guides'
+
+
+
+" " experimenting
 Plug 'Keithbsmiley/investigate.vim'
 Plug 'junegunn/vim-after-object'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'begriffs/haskell-vim-now'
+
+""" EXPERIMENTATION SETUP BEGIN
+" vim-after-object
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+
+""" EXPERIMENTATION SETUP END
+
+"
+Plug 'junegunn/vim-easy-align'  " Plug 'godlygeek/tabular'
+
+"
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'justinmk/vim-gtfo'
+
+" for fun
+Plug 'junegunn/vim-emoji'
 
 " external
 Plug 'Valloric/MatchTagAlways'
-Plug 'Valloric/YouCompleteMe'
 Plug 'sjl/vitality.vim'
 
 "language specific
+Plug 'othree/html5.vim'
 Plug 'juvenn/mustache.vim'
-Plug 'drichard/vim-brunch'
 Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'klen/python-mode'
 Plug 'nono/vim-handlebars'
 Plug 'kchmck/vim-coffee-script'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
-Plug 'fatih/vim-go'
-Plug 'mattn/emmet-vim'
+Plug 'marijnh/tern_for_vim'
 
+
+""""""" REMOVED
+" seems useful but never used in practice
+" Plug 'Shougo/vimshell.vim'
+" Plug 'mattn/emmet-vim'
+" Plug 'majutsushi/tagbar'
+"
+" language specifi
+" Plug 'fatih/vim-go'
+" Plug 'cakebaker/scss-syntax.vim'
+" Plug 'drichard/vim-brunch'
+" Plug 'begriffs/haskell-vim-now'
 
 " ios
-Plug 'eraserhd/vim-ios/'
-Plug 'msanders/cocoa.vim'
-Plug 'toyamarinyon/vim-swift'
+" Plug 'eraserhd/vim-ios/'
+" Plug 'msanders/cocoa.vim'
+" Plug 'toyamarinyon/vim-swift'
+"
+" replaced with better alternatives
 
 
 call plug#end()
@@ -199,7 +227,7 @@ syntax enable
 set encoding=utf-8
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac"
+set ff=unix
 
 if has("mac") || has("macunix")
   set gfn=Menlo:h14
@@ -298,10 +326,10 @@ map <c-space> ?
 map <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
 
 " Map C-w to splitting in that direction
 " map <C-w>j :bel sp. <cr>
@@ -357,8 +385,9 @@ nnoremap [7 :7b<CR>
 nnoremap [8 :8b<CR>
 nnoremap [9 :9b<CR>
 nnoremap [0 :10b<CR>
+
 " It's useful to show the buffer number in the status line.
-set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
@@ -425,16 +454,16 @@ inoremap <C-E> <End>
 " inoremap " ""<esc>i
 " inoremap < <><esc>i
 
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
+" if has("statusline") && !&cp
+"   set laststatus=2  " always show the status bar
 
-  " Start the status line
-  set statusline=%f\ %m\ %r
-  set statusline+=Line:%l/%L[%p%%]
-  set statusline+=Col:%v
-  set statusline+=Buf:#%n
-  set statusline+=[%b][0x%B]
-endif
+"   " Start the status line
+"   " set statusline=%f\ %m\ %r
+"   " set statusline+=Line:%l/%L[%p%%]
+"   " set statusline+=Col:%v
+"   " set statusline+=Buf:#%n
+"   " set statusline+=[%b][0x%B]
+" endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General abbreviations
@@ -537,22 +566,28 @@ let NERDTreeHijackNetrw=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_height = 20
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 map <C-p> :CtrlP<CR>
 imap <C-p> <ESC>:CtrlP<CR>
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
-  \ 'file': '\v\.(exe|so|dll|swp|o)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+        \ --ignore "\.(git|hg|svn|DS_STORE)$|node_modules|venv|bower_components|tmp(\/)?"
+        \ --ignore "**/*.pyc"
+        \ --ignore "\v\.(exe|so|dll|swp|o)$"
+        \ -g ""'
+else
+  let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
+    \ 'file': '\v\.(exe|so|dll|swp|o)$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
+endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tagbar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>rt :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
@@ -569,11 +604,6 @@ map <leader>gc :Gcommit<CR>
 map <leader>gP :Git pull
 map <leader>gp :Git push
 map <leader>g :Git
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ZoomWin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>z :ZoomWin<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -602,25 +632,32 @@ let g:miniBufExplCheckDupeBufs = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GoldenRatio
+" GoldenView
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F4> :GoldenRatioToggle
+let g:goldenview__enable_default_mapping = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['eshint']
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
+
+" " because ycm doesn't support javascript
+" let g:ycm_register_as_syntastic_checker = 0
+
+map <leader>ss :Errors<CR>
+map <leader>sc :lclose<CR>
+map <leader>sr :SyntasticCheck<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -632,209 +669,24 @@ let g:airline_theme='jellybeans'
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable pylint checking every save
-let g:pymode_lint_write = 0
-
-" Set key 'R' for run python code
-let g:pymode_run_key = 'R'
-
-" Load show documentation plugin
-let g:pymode_doc = 1
-
-" Key for show python documentation
-let g:pymode_doc_key = 'K'
-
-" Load run code plugin
-let g:pymode_run = 1
-
-" Key for run python code
-let g:pymode_run_key = '<leader>r'
-
-" Load pylint code plugin
-let g:pymode_lint = 1
-
-" Switch pylint, pyflakes, pep8, mccabe code-checkers
-" Can have multiply values "pep8,pyflakes,mcccabe"
-let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
-
-" Skip errors and warnings
-" E.g. "E501,W002", "E2,W" (Skip all Warnings and Errors startswith E2) and etc
-let g:pymode_lint_ignore = "E501"
-
-" Select errors and warnings
-" E.g. "E4,W"
-let g:pymode_lint_select = ""
-
-" Run linter on the fly
-let g:pymode_lint_onfly = 0
-
-" Pylint configuration file
-" If file not found use 'pylintrc' from python-mode plugin directory
-let g:pymode_lint_config = "$HOME/.pylintrc"
-
-" Check code every save
-let g:pymode_lint_write = 1
-
-" Auto open cwindow if errors be finded
-let g:pymode_lint_cwindow = 1
-
-" Show error message if cursor placed at the error line
-let g:pymode_lint_message = 1
-
-" Auto jump on first error
-let g:pymode_lint_jump = 0
-
-" Hold cursor in current window
-" when quickfix is open
-let g:pymode_lint_hold = 0
-
-" Place error signs
-let g:pymode_lint_signs = 1
-
-" Maximum allowed mccabe complexity
-let g:pymode_lint_mccabe_complexity = 8
-
-" Minimal height of pylint error window
-let g:pymode_lint_minheight = 3
-
-" Maximal height of pylint error window
-let g:pymode_lint_maxheight = 6
-
-" Load rope plugin
-let g:pymode_rope = 1
-
-" Auto create and open ropeproject
-let g:pymode_rope_auto_project = 1
-
-" Enable autoimport
-let g:pymode_rope_enable_autoimport = 1
-
-" Auto generate global cache
-let g:pymode_rope_autoimport_generate = 1
-
-let g:pymode_rope_autoimport_underlineds = 0
-
-let g:pymode_rope_codeassist_maxfixes = 10
-
-let g:pymode_rope_sorted_completions = 1
-
-let g:pymode_rope_extended_complete = 1
-
-let g:pymode_rope_autoimport_modules = ["os","shutil","datetime"]
-
-let g:pymode_rope_confirm_saving = 1
-
-let g:pymode_rope_global_prefix = "<C-x>p"
-
-let g:pymode_rope_local_prefix = "<C-c>r"
-
-let g:pymode_rope_vim_completion = 1
-
-let g:pymode_rope_guess_project = 1
-
-let g:pymode_rope_goto_def_newwin = ""
-
-let g:pymode_rope_always_show_complete_menu = 0
-
-" Enable python folding
-let g:pymode_folding = 1
-
-" Enable python objects and motion
-let g:pymode_motion = 1
-
-" Auto fix vim python paths if virtualenv enabled
-let g:pymode_virtualenv = 1
-
-" Additional python paths
-let g:pymode_paths = []
-
-" Load breakpoints plugin
-let g:pymode_breakpoint = 1
-
-" Key for set/unset breakpoint
-let g:pymode_breakpoint_key = '<leader>b'
-
-" Autoremove unused whitespaces
-let g:pymode_utils_whitespaces = 1
-
-" Enable pymode indentation
-let g:pymode_indent = 1
-
-" Set default pymode python options
-let g:pymode_options = 1
-
-" Enable pymode's custom syntax highlighting
-let g:pymode_syntax = 1
-
-" Enable all python highlightings
-let g:pymode_syntax_all = 1
-
-" Highlight "print" as function
-let g:pymode_syntax_print_as_function = 0
-
-" Highlight indentation errors
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-
-" Highlight trailing spaces
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" Highlight string formatting
-let g:pymode_syntax_string_formatting = g:pymode_syntax_all
-
-" Highlight str.format syntax
-let g:pymode_syntax_string_format = g:pymode_syntax_all
-
-" Highlight string.Template syntax
-let g:pymode_syntax_string_templates = g:pymode_syntax_all
-
-" Highlight doc-tests
-let g:pymode_syntax_doctests = g:pymode_syntax_all
-
-" Highlight builtin objects (__doc__, self, etc)
-let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
-
-" Highlight builtin functions
-let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
-
-" Highlight exceptions
-let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
-
-" For fast machines
-let g:pymode_syntax_slow_sync = 0
-
-" for coffeetags: https://github.com/lukaszkorecki/CoffeeTags/issues
-
-
-
-" YCM
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_complete_in_comments = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
+
+" " YCM
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_complete_in_comments = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ack.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>a :Ack<cr>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" extradite.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>tg :Extradite<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-go.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_fmt_autosave = 0
+" to use the silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 """""""""""""""""""""""
-" indentGuide
+" vim-indent-guides
 """""""""""""""""""""""
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
@@ -842,4 +694,22 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234 guibg=#1a1a1a guifg=#1a1a1a
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a guifg=#1a1a1a
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-sneak
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:sneak#streak = 1
 
+nmap f <Plug>Sneak_s
+nmap F <Plug>Sneak_S
+xmap f <Plug>Sneak_s
+xmap F <Plug>Sneak_S
+omap f <Plug>Sneak_s
+omap F <Plug>Sneak_S
+
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
