@@ -17,10 +17,8 @@ set iskeyword-=_
 " always show status bar
 set laststatus=2
 
-" for system clipping
-if $TMUX == ''
-  set clipboard=unnamed
-endif
+" for system clipping - even in tmux
+set clipboard=unnamed
 
 " Core
 "
@@ -512,54 +510,23 @@ map <leader>nf :NERDTreeFind<cr>
 " always opens the buffer for the file if it already exists
 set hidden
 
-let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
-
-" TODO: Gives an error when :so %
-" " If the parameter is a directory, cd into it
-" function s:CdIfDirectory(directory)
-"   let explicitDirectory = isdirectory(a:directory)
-"   let directory = explicitDirectory || empty(a:directory)
-
-"   if explicitDirectory
-"     exe "cd " . fnameescape(a:directory)
-"   endif
-
-"   " Allows reading from stdin
-"   " ex: git diff | mvim -R -
-"   if strlen(a:directory) == 0
-"     return
-"   endif
-
-"   if directory
-"     NERDTree
-"     wincmd p
-"     bd
-"   endif
-
-"   if explicitDirectory
-"     wincmd p
-"   endif
-" endfunction
-
-" " NERDTree utility function
-" function s:UpdateNERDTree(...)
-"   let stay = 0
-
-"   if(exists("a:1"))
-"     let stay = a:1
-"   end
-
-"   if exists("t:NERDTreeBufName")
-"     let nr = bufwinnr(t:NERDTreeBufName)
-"     if nr != -1
-"       exe nr . "wincmd w"
-"       exe substitute(mapcheck("R"), "<CR>", "", "")
-"       if !stay
-"         wincmd p
-"       end
-"     endif
-"   endif
-" endfunction
+let NERDTreeIgnore=[
+  \ '\.pyc$',
+  \ '\.pyo$',
+  \ '\.rbc$',
+  \ '\.rbo$',
+  \ '\.class$',
+  \ '\.o$',
+  \ '\~$',
+  \ '.jpg$',
+  \ '.jpeg$',
+  \ '.png$',
+  \ '.psd$',
+  \ '.gif$',
+  \ '.woff$',
+  \ '.ttf$',
+  \ '.otf$'
+  \ ]
 
 " hijack netrw
 let NERDTreeHijackNetrw=1
@@ -577,6 +544,7 @@ map <C-p> :CtrlP<CR>
 imap <C-p> <ESC>:CtrlP<CR>
 
 if executable('ag')
+  " NOTE: should use global .agignore for ignoring files!
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
         \ -g ""
         \ '
@@ -605,12 +573,14 @@ map <leader>gP :Git pull
 map <leader>gp :Git push
 map <leader>g :Git
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <M-o> <Esc>o
 inoremap <C-j> <Down>
 let g:ragtag_global_maps = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ragtag
@@ -681,31 +651,14 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234 guibg=#1a1a1a guifg=#1a1a1a
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a guifg=#1a1a1a
 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " vim-sneak
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:sneak#streak = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" auto-pairs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:AutoPairsFlyMode = 1
 
-" nmap f <Plug>Sneak_s
-" nmap F <Plug>Sneak_S
-" xmap f <Plug>Sneak_s
-" xmap F <Plug>Sneak_S
-" omap f <Plug>Sneak_s
-" omap F <Plug>Sneak_S
-
-" "replace 't' with 1-char Sneak
-" nmap t <Plug>Sneak_t
-" nmap T <Plug>Sneak_T
-" xmap t <Plug>Sneak_t
-" xmap T <Plug>Sneak_T
-" omap t <Plug>Sneak_t
-" omap T <Plug>Sneak_T
-
-
-
-""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easymotion
-""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -716,6 +669,7 @@ omap / <Plug>(easymotion-tn)
 " different highlight method and have some other features )
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoComplete
