@@ -1,5 +1,5 @@
 # fix tmux colors
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="env TERM=screen-256color-bce tmux"
 # https://wiki.archlinux.org/index.php/DualScreen
 alias monitor='monitor_none'
 alias monitort='monitor_above'
@@ -51,10 +51,7 @@ alias vi='vim'
 # alias nano='vim'
 # alias gedit='vim'
 # hack for YCM
-alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
-alias mvim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim'
 # macvim, dyld for youcompleteme
-# alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 /Applications/MacVim.app/Contents/MacOS/Vim'
 
 alias lvim="!vim" # lastvim
 
