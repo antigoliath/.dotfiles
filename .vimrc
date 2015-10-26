@@ -60,6 +60,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Keithbsmiley/investigate.vim'
 Plug 'junegunn/vim-after-object'
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc'
 
 """ EXPERIMENTATION SETUP BEGIN
 " vim-after-object
