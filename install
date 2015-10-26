@@ -52,6 +52,8 @@ gem install bropages
 brew install cgdb
 brew install hub
 
+brew reinstall --HEAD fzf
+/usr/local/Cellar/fzf/HEAD/install
 
 
 
