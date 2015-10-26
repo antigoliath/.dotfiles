@@ -115,3 +115,7 @@ alias mux=tmuxinator
 export EC2='ubuntu@184.73.248.188'
 export do='dxu@198.199.119.65'
 
+export gj='ubuntu@ec2-54-183-131-12.us-west-1.compute.amazonaws.com'
+
+# ag
+alias ssg='ag -p ~/.files/.agignore'
