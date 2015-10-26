@@ -48,3 +48,5 @@ export NVM_DIR="/Users/davidxu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

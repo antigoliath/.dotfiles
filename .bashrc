@@ -200,3 +200,5 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 source ~/.files/.git-completion.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
