@@ -555,6 +555,7 @@ endfunction
 command! FZFR call s:find_root()
 
 map <C-p> :FZFR<CR>
+map <C-o> :FZF<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
