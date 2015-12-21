@@ -651,7 +651,7 @@ let g:airline_theme='jellybeans'
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " " YCM
 " let g:ycm_autoclose_preview_window_after_completion = 1
@@ -679,7 +679,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a gu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " auto-pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:AutoPairsFlyMode = 1
+" let g:AutoPairsFlyMode = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easymotion
