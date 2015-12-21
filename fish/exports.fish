@@ -1,5 +1,4 @@
 set -x PATH /usr/local/bin $PATH
-set -x PATH /Users/davidxu/code/upthere/upcode/node/upweb/bin $PATH
 set -x PATH ~/tools/arcanist/bin $PATH
 set -x EDITOR vim
 set -x NVM_DIR "/Users/davidxu/.nvm"
