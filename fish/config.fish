@@ -22,3 +22,7 @@ set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 fundle plugin 'edc/bass'
 
 fundle init
+
+bass source ~/.nvm/nvm.sh
+
+source ~/.config/fish/nvm-wrapper/nvm.fish

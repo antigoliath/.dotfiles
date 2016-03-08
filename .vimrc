@@ -99,6 +99,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'dag/vim-fish'
+Plug 'mxw/vim-jsx'
 
 
 """"""" REMOVED
@@ -120,6 +121,11 @@ Plug 'dag/vim-fish'
 "
 " replaced with better alternatives
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" JSX
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
 
 call plug#end()
 
@@ -246,8 +252,8 @@ elseif has("linux")
 endif
 
 " character limit
-execute "set colorcolumn=" . join(range(81,335), ',')
-hi ColorColumn ctermbg=233 ctermbg=233 guibg=#1a1a1a guifg=#1a1a1a
+" execute "set colorcolumn=" . join(range(81,335), ',')
+" hi ColorColumn ctermbg=233 ctermbg=233 guibg=#1a1a1a guifg=#1a1a1a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
