@@ -38,10 +38,11 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 
 " not using lightline because it does not and will not support top bar tabline
-Plug 'bling/vim-airline' " Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline' " Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tmhedberg/matchit'
@@ -53,7 +54,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-Plug 'jiangmiao/auto-pairs'  " Plug 'Raimondi/delimitMate'
+" Plug 'jiangmiao/auto-pairs'  " Plug 'Raimondi/delimitMate'
 Plug 'plasticboy/vim-markdown'  " Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-commentary'
 
@@ -100,6 +101,49 @@ Plug 'elzr/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'dag/vim-fish'
 Plug 'mxw/vim-jsx'
+Plug 'vim-scripts/ShaderHighLight'
+
+Plug 'def-lkb/ocp-indent-vim'
+Plug 'the-lambda-church/merlin', {'dir': 'vim/merlin'}
+
+
+Plug 'git://github.com/MartinLafreniere/vim-PairTools.git'
+
+autocmd FileType reason let g:pairtools_reason_pairclamp = 1
+autocmd FileType reason let g:pairtools_reason_tagwrench = 0
+autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
+autocmd FileType reason let g:pairtools_reason_autoclose  = 1
+autocmd FileType reason let g:pairtools_reason_forcepairs = 0
+autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
+autocmd FileType reason let g:pairtools_reason_smartclose = 1
+autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
+autocmd FileType reason let g:pairtools_reason_antimagic  = 1
+autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
+autocmd FileType reason let g:pairtools_reason_pcexpander = 1
+autocmd FileType reason let g:pairtools_reason_pceraser   = 1
+autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+autocmd FileType reason let g:pairtools_reason_twexpander = 0
+autocmd FileType reason let g:pairtools_reason_tweraser   = 0
+autocmd FileType reason let g:pairtools_reason_apostrophe = 0
+
+" autocmd BufWritePre *.re :ReasonPrettyPrint
+
+
+
+
+
+Plug '/Users/davidxu/code/dxu/fb/Reason/editorSupport/VimReason'
+
+if !empty(system('which opam'))
+  " =================================== Merlin ================================
+  let s:merlinPath=substitute(system('opam config var share'),'\n$','','') . "/merlin"
+  execute "set rtp+=".s:merlinPath."/vim"
+  execute "set rtp+=".s:merlinPath."/vimbufsync"
+  let g:syntastic_reason_checkers=['merlin']
+  let g:merlin_binary_flags = ["-pp", "reasonfmt_merlin"]
+else
+  " TODO: figure out opam for windows
+endif
 
 
 """"""" REMOVED
@@ -138,6 +182,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+syntax on
 filetype plugin on
 filetype indent on     " required!
 
@@ -639,6 +684,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint', 'coffee']
+let g:syntastic_ocaml_checkers=['merlin']
 let g:syntastic_mode_map = {
       \ "mode": "passive"
       \ }
@@ -783,3 +829,11 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby =
+\ '[^. *\t]\.\w*\|\h\w*::'
+

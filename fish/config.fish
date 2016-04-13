@@ -26,3 +26,5 @@ fundle init
 bass source ~/.nvm/nvm.sh
 
 source ~/.config/fish/nvm-wrapper/nvm.fish
+
+eval (opam config env --shell=fish)
