@@ -102,10 +102,6 @@ alias mouse_accel_on='defaults write .GlobalPreferences com.apple.mouse.scaling 
 
 alias up='cd ~/code/upthere/upthere/'
 alias uprest='cd ~/code/upthere/core/upthere/ ; bin/rest_bridge --env=staging'
-alias upweb='cd /Users/davidxu/code/upthere/upweb'
-alias vagr='cd /Users/davidxu/code/upthere/vagrant/'
-alias vagssh='cd /Users/davidxu/code/upthere/vagrant/ubuntu-dev ; vagrant ssh'
-alias vagdev='cd /Users/davidxu/code/upthere/vagrant/common_dev/dev'
 
 alias jshint='jshint --config ~/.files/.jshintrc'
 

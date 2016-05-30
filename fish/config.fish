@@ -24,8 +24,11 @@ fundle plugin 'edc/bass'
 
 fundle init
 
-bass source ~/.nvm/nvm.sh
+function nvm
+  bass source ~/.nvm/nvm.sh ';' nvm $argv
+end
 
-source ~/.config/fish/nvm-wrapper/nvm.fish
 
-eval (opam config env --shell=fish)
+#source ~/.config/fish/nvm-wrapper/nvm.fish
+
+# eval (opam config env --shell=fish)

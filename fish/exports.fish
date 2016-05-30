@@ -1,7 +1,6 @@
 set -x PATH /usr/local/bin $PATH
-set -x PATH ~/tools/arcanist/bin $PATH
 set -x EDITOR vim
-set -x NVM_DIR "/Users/davidxu/.nvm"
+set -x NVM_DIR "/Users/robo/.nvm"
 set -x KEYTIMEOUT 1
 set -x SHELL /usr/local/bin/fish
 
