@@ -13,6 +13,7 @@ end
 
 set -x FZF_DEFAULT_COMMAND 'ag -l -g ""'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -x OCAMLRUNPARAM "b"
 
 # doesn't support new files
 # set -x FZF_DEFAULT_COMMAND '

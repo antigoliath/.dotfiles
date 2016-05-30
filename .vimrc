@@ -66,6 +66,9 @@ Plug 'junegunn/vim-after-object'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/vimshell.vim'
 Plug 'Shougo/vimproc'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-pencil'
 
 """ EXPERIMENTATION SETUP BEGIN
 " vim-after-object
@@ -315,7 +318,7 @@ set noswapfile
 " au FileType javascript call JavaScriptFold()
 
 " automatically remove whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " Use spaces instead of tabs
 set expandtab
@@ -633,6 +636,29 @@ map <C-o> :FZF<CR>
 " endif
 
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Writing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" for command mode
+nnoremap <S-Tab> <<
+" for insert mode
+inoremap <S-Tab> <C-d>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Goyo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>gy :Goyo<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Limelight
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>ll :Limelight<CR>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -647,7 +673,7 @@ map <leader>gl :Glog<CR>
 map <leader>gc :Gcommit<CR>
 map <leader>gP :Git pull
 map <leader>gp :Git push
-map <leader>g :Git
+map <leader>g<Space> :Git<Space>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
