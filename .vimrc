@@ -38,8 +38,10 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 
 " not using lightline because it does not and will not support top bar tabline
-Plug 'vim-airline/vim-airline' " Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
 " Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 " Plug 'ervandew/supertab'
@@ -318,7 +320,7 @@ set noswapfile
 " au FileType javascript call JavaScriptFold()
 
 " automatically remove whitespace on save
-" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Use spaces instead of tabs
 set expandtab
