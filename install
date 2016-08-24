@@ -8,6 +8,7 @@ brew tap caskroom/versions
 # Applications
 brew cask install google-chrome
 # brew cask install google-chrome-canary
+brew cask install skyfonts
 brew cask install alfred
 brew cask alfred link
 brew cask install spectacle
@@ -36,7 +37,7 @@ brew cask install notational-velocity
 brew cask install colorpicker-skalacolor
 
 # install xcode
-brew install macvim --override-system-vim
+brew install macvim --with-cscope --with-lua --override-system-vim
 brew linkapps
 
 # CLI
