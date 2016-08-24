@@ -94,7 +94,7 @@ alias gf='git fetch'
 alias ga='git add'
 
 # coding
-alias node='env NODE_NO_READLINE=1 rlwrap node'
+#alias node='env NODE_NO_READLINE=1 rlwrap node'
 alias git='hub'
 
 alias mouse_accel_off='defaults write .GlobalPreferences com.apple.mouse.scaling 0'
