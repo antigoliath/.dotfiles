@@ -14,7 +14,7 @@ brew cask alfred link
 brew cask install spectacle
 brew cask install vlc
 brew cask install dropbox
-brew cask install iterm2
+brew cask install hyperterm
 brew cask install flux
 brew cask install transmission
 brew cask install evernote
