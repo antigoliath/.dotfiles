@@ -462,9 +462,9 @@ nnoremap [v :e#<CR>
 nnoremap ]v :e#<CR>
 
 " delete current buffer
-nnoremap \bd :bd<CR>
+nnoremap <Leader>bd :bd<CR>
 
-nnoremap \bq :bd<CR>
+nnoremap <Leader>bq :bd<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -549,6 +549,16 @@ set omnifunc=syntaxcomplete#Complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" => vim-easy-align
+""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""
 " => YankRing
@@ -645,7 +655,7 @@ map <C-o> :FZF<CR>
 " for command mode
 nnoremap <S-Tab> <<
 " for insert mode
-inoremap <S-Tab> <C-d>
+" inoremap <S-Tab> <C-d>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
