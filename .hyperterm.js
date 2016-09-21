@@ -27,6 +27,8 @@ module.exports = {
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
 
+    shell: '/usr/local/bin/fish',
+
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
     colors: [
