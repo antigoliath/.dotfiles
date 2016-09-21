@@ -1,14 +1,10 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew tap caskroom/cask
-brew install brew-cask
-brew tap caskroom/versions
-
+brew cask
 
 # Applications
 brew cask install google-chrome
 # brew cask install google-chrome-canary
-brew cask install skyfonts
 brew cask install alfred
 brew cask alfred link
 brew cask install spectacle
@@ -17,24 +13,11 @@ brew cask install dropbox
 brew cask install hyperterm
 brew cask install flux
 brew cask install transmission
-brew cask install evernote
 brew cask install caffeine
-brew cask install dropbox
 brew cask install the-unarchiver
-brew cask install jumpcut
-brew cask install sketch
 brew cask install steam
 brew cask install licecap
-brew cask install imageoptim
 brew cask install skype
-brew cask install cdock
-brew cask install scroll-reverser
-
-brew cask install dash
-
-brew cask install istat-menus
-brew cask install notational-velocity
-brew cask install colorpicker-skalacolor
 
 # install xcode
 brew install macvim --with-cscope --with-lua --override-system-vim
@@ -46,12 +29,13 @@ brew install node
 brew install tig
 brew install the_silver_searcher
 brew install tmux
+brew install hub
+
 brew install gpg
 # for node repl
 brew install rlwrap
 gem install bropages
 brew install cgdb
-brew install hub
 
 brew reinstall --HEAD fzf
 /usr/local/Cellar/fzf/HEAD/install
@@ -68,6 +52,7 @@ ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/.jshintrc ~/.jshintrc
 ln -s ~/.files/.coffeelint.json ~/.coffeelint.json
 ln -s ~/.files/.agignore ~/.agignore
+ln -s ~/.files/.hyperterm.js ~/.hyperterm.js
 
 mkdir -p ~/.vim/autoload
 curl -fLo ~/.vim/autoload/plug.vim \
@@ -132,6 +117,15 @@ brew install hg
 brew install go
 GOPATH=/usr/local/Cellar/go/1.3/bin/
  export GOPATH
+
+
+brew install fish
+
+# You will need to add: POSSIBLY DIFFERENT PATH
+#  /usr/local/bin/fish
+# to /etc/shells.
+
+chsh -s /usr/local/bin/fish
 
 
 
