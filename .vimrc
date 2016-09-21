@@ -71,6 +71,7 @@ Plug 'Shougo/vimproc'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-pencil'
+Plug 'ludovicchabant/vim-lawrencium'
 
 """ EXPERIMENTATION SETUP BEGIN
 " vim-after-object
