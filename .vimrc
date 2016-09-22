@@ -23,9 +23,11 @@ set clipboard=unnamed
 " Core
 "
 call plug#begin('~/.vim/plugged')
+
+Plug 'vim-scripts/fu'
+
 Plug 'zhaocai/GoldenView.Vim'  " Plug 'roman/golden-ratio'
 
-Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -37,22 +39,24 @@ Plug 'scrooloose/syntastic'
 " " i want to replace
 Plug 'tpope/vim-fugitive'
 
+
+
 " not using lightline because it does not and will not support top bar tabline
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 " Plug 'airblade/vim-gitgutter'
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
 " Plug 'ervandew/supertab'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-ragtag'
-Plug 'chrisbra/NrrwRgn'
+" Plug 'chrisbra/NrrwRgn'
 
 " Plug 'justinmk/vim-sneak'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
@@ -60,22 +64,23 @@ Plug 'tpope/vim-repeat'
 Plug 'plasticboy/vim-markdown'  " Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-commentary'
 
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 
 " " experimenting
-Plug 'Keithbsmiley/investigate.vim'
-Plug 'junegunn/vim-after-object'
+" Plug 'Keithbsmiley/investigate.vim'
+" Plug 'junegunn/vim-after-object'
 Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/vimshell.vim'
-Plug 'Shougo/vimproc'
+" Plug 'Shougo/vimshell.vim'
+" Plug 'Shougo/vimproc'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-pencil'
 Plug 'ludovicchabant/vim-lawrencium'
 
 """ EXPERIMENTATION SETUP BEGIN
 " vim-after-object
-autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+" autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
 """ EXPERIMENTATION SETUP END
 
@@ -84,10 +89,10 @@ Plug 'junegunn/vim-easy-align'  " Plug 'godlygeek/tabular'
 
 "
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'justinmk/vim-gtfo'
+" Plug 'justinmk/vim-gtfo'
 
 " for fun
-Plug 'junegunn/vim-emoji'
+" Plug 'junegunn/vim-emoji'
 
 " external
 Plug 'Valloric/MatchTagAlways'
@@ -104,33 +109,33 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
-Plug 'marijnh/tern_for_vim'
+" Plug 'marijnh/tern_for_vim'
 Plug 'dag/vim-fish'
 Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/ShaderHighLight'
 
-Plug 'def-lkb/ocp-indent-vim'
-Plug 'the-lambda-church/merlin', {'dir': 'vim/merlin'}
+" Plug 'def-lkb/ocp-indent-vim'
+" Plug 'the-lambda-church/merlin', {'dir': 'vim/merlin'}
 
 
-Plug 'git://github.com/MartinLafreniere/vim-PairTools.git'
+" Plug 'git://github.com/MartinLafreniere/vim-PairTools.git'
 
-autocmd FileType reason let g:pairtools_reason_pairclamp = 1
-autocmd FileType reason let g:pairtools_reason_tagwrench = 0
-autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
-autocmd FileType reason let g:pairtools_reason_autoclose  = 1
-autocmd FileType reason let g:pairtools_reason_forcepairs = 0
-autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
-autocmd FileType reason let g:pairtools_reason_smartclose = 1
-autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
-autocmd FileType reason let g:pairtools_reason_antimagic  = 1
-autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
-autocmd FileType reason let g:pairtools_reason_pcexpander = 1
-autocmd FileType reason let g:pairtools_reason_pceraser   = 1
-autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
-autocmd FileType reason let g:pairtools_reason_twexpander = 0
-autocmd FileType reason let g:pairtools_reason_tweraser   = 0
-autocmd FileType reason let g:pairtools_reason_apostrophe = 0
+" autocmd FileType reason let g:pairtools_reason_pairclamp = 1
+" autocmd FileType reason let g:pairtools_reason_tagwrench = 0
+" autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
+" autocmd FileType reason let g:pairtools_reason_autoclose  = 1
+" autocmd FileType reason let g:pairtools_reason_forcepairs = 0
+" autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
+" autocmd FileType reason let g:pairtools_reason_smartclose = 1
+" autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
+" autocmd FileType reason let g:pairtools_reason_antimagic  = 1
+" autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
+" autocmd FileType reason let g:pairtools_reason_pcexpander = 1
+" autocmd FileType reason let g:pairtools_reason_pceraser   = 1
+" autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
+" autocmd FileType reason let g:pairtools_reason_twexpander = 0
+" autocmd FileType reason let g:pairtools_reason_tweraser   = 0
+" autocmd FileType reason let g:pairtools_reason_apostrophe = 0
 
 " autocmd BufWritePre *.re :ReasonPrettyPrint
 
@@ -138,18 +143,18 @@ autocmd FileType reason let g:pairtools_reason_apostrophe = 0
 
 
 
-Plug '/Users/davidxu/code/dxu/fb/Reason/editorSupport/VimReason'
+" Plug '/Users/davidxu/code/dxu/fb/Reason/editorSupport/VimReason'
 
-if !empty(system('which opam'))
-  " =================================== Merlin ================================
-  let s:merlinPath=substitute(system('opam config var share'),'\n$','','') . "/merlin"
-  execute "set rtp+=".s:merlinPath."/vim"
-  execute "set rtp+=".s:merlinPath."/vimbufsync"
-  let g:syntastic_reason_checkers=['merlin']
-  let g:merlin_binary_flags = ["-pp", "reasonfmt_merlin"]
-else
-  " TODO: figure out opam for windows
-endif
+" if !empty(system('which opam'))
+"   " =================================== Merlin ================================
+"   let s:merlinPath=substitute(system('opam config var share'),'\n$','','') . "/merlin"
+"   execute "set rtp+=".s:merlinPath."/vim"
+"   execute "set rtp+=".s:merlinPath."/vimbufsync"
+"   let g:syntastic_reason_checkers=['merlin']
+"   let g:merlin_binary_flags = ["-pp", "reasonfmt_merlin"]
+" else
+"   " TODO: figure out opam for windows
+" endif
 
 
 """"""" REMOVED
@@ -401,26 +406,26 @@ nmap <C-l> <C-W>l
 " map <C-w>h :vs. <cr>
 
 " Map Control-# to switch tabs
-map  \0 0gt
-map  \1 1gt
-map  \2 2gt
-map  \3 3gt
-map  \4 4gt
-map  \5 5gt
-map  \6 6gt
-map  \7 7gt
-map  \8 8gt
-map  \9 9gt
-imap \0 <Esc>0gt
-imap \1 <Esc>1gt
-imap \2 <Esc>2gt
-imap \3 <Esc>3gt
-imap \4 <Esc>4gt
-imap \5 <Esc>5gt
-imap \6 <Esc>6gt
-imap \7 <Esc>7gt
-imap \8 <Esc>8gt
-imap \9 <Esc>9gt
+" map  \0 0gt
+" map  \1 1gt
+" map  \2 2gt
+" map  \3 3gt
+" map  \4 4gt
+" map  \5 5gt
+" map  \6 6gt
+" map  \7 7gt
+" map  \8 8gt
+" map  \9 9gt
+" imap \0 <Esc>0gt
+" imap \1 <Esc>1gt
+" imap \2 <Esc>2gt
+" imap \3 <Esc>3gt
+" imap \4 <Esc>4gt
+" imap \5 <Esc>5gt
+" imap \6 <Esc>6gt
+" imap \7 <Esc>7gt
+" imap \8 <Esc>8gt
+" imap \9 <Esc>9gt
 
 
 " \l       : list buffers
@@ -564,7 +569,7 @@ nmap ga <Plug>(EasyAlign)
 """"""""""""""""""""""""""""""
 " => YankRing
 """"""""""""""""""""""""""""""
-let g:yankring_history_dir = '~/.files/temp/'
+" let g:yankring_history_dir = '~/.files/temp/'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -736,13 +741,13 @@ map <leader>sr :SyntasticCheck<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='jellybeans'
+" let g:airline_theme='jellybeans'
 
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
+" " Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+" " Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
 " " YCM
 " let g:ycm_autoclose_preview_window_after_completion = 1
@@ -752,11 +757,11 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ack.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>a :Ack<cr>
-" to use the silver searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" nmap <leader>a :Ack<cr>
+" " to use the silver searcher
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
 
 """""""""""""""""""""""
 " vim-indent-guides
@@ -777,102 +782,102 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a gu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Gif config
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" " Without these mappings, `n` & `N` works fine. (These mappings just provide
+" " different highlight method and have some other features )
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+" map <Leader>l <Plug>(easymotion-lineforward)
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+" map <Leader>h <Plug>(easymotion-linebackward)
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+" let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
-let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_smartcase = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoComplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" let g:acp_enableAtStartup = 0
+" " Use neocomplete.
+" let g:neocomplete#enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" " Set minimum syntax keyword length.
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+" " Define dictionary.
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : '',
+"     \ 'vimshell' : $HOME.'/.vimshell_hist',
+"     \ 'scheme' : $HOME.'/.gosh_completions'
+"         \ }
 
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" " Define keyword.
+" if !exists('g:neocomplete#keyword_patterns')
+"     let g:neocomplete#keyword_patterns = {}
+" endif
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+" " Plugin key-mappings.
+" inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+" " Recommended key-mappings.
+" " <CR>: close popup and save indent.
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+"   " For no inserting <CR> key.
+"   "return pumvisible() ? "\<C-y>" : "\<CR>"
+" endfunction
+" " <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" " <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" " Close popup by <Space>.
+" "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+" " AutoComplPop like behavior.
+" "let g:neocomplete#enable_auto_select = 1
 
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+" " Shell like behavior(not recommended).
+" "set completeopt+=longest
+" "let g:neocomplete#enable_auto_select = 1
+" "let g:neocomplete#disable_auto_complete = 1
+" "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" " Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" " Enable heavy omni completion.
+" if !exists('g:neocomplete#sources#omni#input_patterns')
+"   let g:neocomplete#sources#omni#input_patterns = {}
+" endif
+" "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+" "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" " For perlomni.vim setting.
+" " https://github.com/c9s/perlomni.vim
+" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby =
-\ '[^. *\t]\.\w*\|\h\w*::'
+" if !exists('g:neocomplete#force_omni_input_patterns')
+"   let g:neocomplete#force_omni_input_patterns = {}
+" endif
+" let g:neocomplete#force_omni_input_patterns.ruby =
+" \ '[^. *\t]\.\w*\|\h\w*::'
 
