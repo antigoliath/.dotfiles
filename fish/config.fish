@@ -29,6 +29,7 @@ function nvm
   bass source ~/.nvm/nvm.sh ';' nvm $argv
 end
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #source ~/.config/fish/nvm-wrapper/nvm.fish
 
