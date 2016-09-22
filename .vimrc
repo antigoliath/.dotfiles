@@ -233,7 +233,7 @@ set wildignore+=*.swp,*~,._*
 "Always show current position
 set ruler
 set number
-set cursorline
+" set cursorline
 
 " Height of the command bar
 set cmdheight=2
@@ -261,6 +261,10 @@ set incsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
+" disabling syntax highlighting after 128 columns and/or minlines set to 256.
+" Might help performance.
+set synmaxcol=128
+syntax sync minlines=256
 
 " For regular expressions turn magic on
 set magic
