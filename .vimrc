@@ -83,9 +83,6 @@ Plug 'junegunn/limelight.vim'
 " In flux...
 Plug 'jiangmiao/auto-pairs'       " Plug 'Raimondi/delimitMate'
 
-
-
-
 " YMMV plugins. Only occasionally used. Removed to improve experience.
 " Plug 'chrisbra/NrrwRgn'
 " Plug 'airblade/vim-gitgutter'
@@ -108,6 +105,13 @@ Plug 'jiangmiao/auto-pairs'       " Plug 'Raimondi/delimitMate'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.ejs set filetype=html
 
+"""""""""""""""""""""""""""""""
+" JSX
+"""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
+
+call plug#end()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -124,9 +128,9 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
+""" VIM user interface
+"""""""""""""""""""""""""""""""
 
 " keep on same column
 set nostartofline
@@ -173,6 +177,7 @@ set smartcase
 " Highlight search results
 set hlsearch
 
+" quickly clear search results
 nmap // :noh<CR>
 
 " Makes search act like search in modern browsers
@@ -203,16 +208,17 @@ set novisualbell
 set t_vb=
 set tm=500
 
-
 " Add a bit extra margin to the left
 set foldcolumn=0
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
+""" Colors and Fonts
+""""""""""""""""""""""""""""""""
 
+" may help with linux terminal colors
 set term=xterm-256color
+
 colorscheme fu   " an appropriate color scheme
 
 syntax enable
@@ -232,21 +238,21 @@ elseif has("linux")
   set shell=/bin/bash
 endif
 
-" character limit
-" execute "set colorcolumn=" . join(range(81,335), ',')
-" hi ColorColumn ctermbg=233 ctermbg=233 guibg=#1a1a1a guifg=#1a1a1a
+" YMMV: highlight the character limit. You may have to alter the colors.
+execute "set colorcolumn=" . join(range(81,335), ',')
+hi ColorColumn ctermbg=233 ctermbg=233 guibg=#1a1a1a guifg=#1a1a1a
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+"""""""""""""""""""""""""""""""""
+""" Files, backups and undo
+"""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway.
 set nobackup
 set nowb
 set noswapfile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""
+""" Text, tab and indent related
+""""""""""""""""""""""""""""""""""
 " enable javascript code folding
 " au FileType javascript call JavaScriptFold()
 
@@ -263,7 +269,7 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
-" Linebreak on 500 characters
+" YMMV: Linebreak on 500 characters
 set lbr
 " set tw=500
 
@@ -295,18 +301,16 @@ nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
 """"""""""""""""""""""""""""""
-" => Visual mode related
+""" Visual mode related
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""
+""" Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
@@ -330,64 +334,13 @@ nmap <C-l> <C-W>l
 " map <C-w>l :bel vs. <cr>
 " map <C-w>h :vs. <cr>
 
-" Map Control-# to switch tabs
-" map  \0 0gt
-" map  \1 1gt
-" map  \2 2gt
-" map  \3 3gt
-" map  \4 4gt
-" map  \5 5gt
-" map  \6 6gt
-" map  \7 7gt
-" map  \8 8gt
-" map  \9 9gt
-" imap \0 <Esc>0gt
-" imap \1 <Esc>1gt
-" imap \2 <Esc>2gt
-" imap \3 <Esc>3gt
-" imap \4 <Esc>4gt
-" imap \5 <Esc>5gt
-" imap \6 <Esc>6gt
-" imap \7 <Esc>7gt
-" imap \8 <Esc>8gt
-" imap \9 <Esc>9gt
-
-
-" \l       : list buffers
-" \b \f \g : go back/forward/last-used
-" \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap ]l :ls<CR>
-
-nnoremap ]1 :1b<CR>
-nnoremap ]2 :2b<CR>
-nnoremap ]3 :3b<CR>
-nnoremap ]4 :4b<CR>
-nnoremap ]5 :5b<CR>
-nnoremap ]6 :6b<CR>
-nnoremap ]7 :7b<CR>
-nnoremap ]8 :8b<CR>
-nnoremap ]9 :9b<CR>
-nnoremap ]0 :10b<CR>
-nnoremap [1 :1b<CR>
-nnoremap [2 :2b<CR>
-nnoremap [3 :3b<CR>
-nnoremap [4 :4b<CR>
-nnoremap [5 :5b<CR>
-nnoremap [6 :6b<CR>
-nnoremap [7 :7b<CR>
-nnoremap [8 :8b<CR>
-nnoremap [9 :9b<CR>
-nnoremap [0 :10b<CR>
-
-" It's useful to show the buffer number in the status line.
-" set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
 " mappings to access buffers, [b and ]b for back and forward,
 nnoremap ]b :bn<CR>
 nnoremap [b :bp<CR>
+
 " [v, ]v, go to last visited buffers
 nnoremap [v :e#<CR>
 nnoremap ]v :e#<CR>
@@ -399,7 +352,7 @@ nnoremap <Leader>bq :bd<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
+""" Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
 map 0 ^
@@ -416,16 +369,15 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 map <leader>; A;<ESC>
 
 
-
 """"""""""""""""""""""""""""""""""""""""""
 " Other
 """"""""""""""""""""""""""""""""""""""""""
 
-" Disable scrollbars (real hackers don't use scrollbars for navigation!)
-" set guioptions-=r
-" set guioptions-=R
-" set guioptions-=l
-" set guioptions-=L
+" Disable scrollbars
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 
 " Bash like keys for the command line
 cnoremap <C-A> <Home>
@@ -438,26 +390,6 @@ cnoremap <C-N> <Down>
 inoremap <C-A> <Home>
 inoremap <C-E> <End>
 
-" Map auto complete of (, ", ', [
-" inoremap ( ()<esc>i
-" inoremap [ []<esc>i
-" inoremap { {}<esc>i
-" inoremap {<CR> {<CR>}<esc>O
-" inoremap ' ''<esc>i
-" inoremap " ""<esc>i
-" inoremap < <><esc>i
-
-" if has("statusline") && !&cp
-"   set laststatus=2  " always show the status bar
-
-"   " Start the status line
-"   " set statusline=%f\ %m\ %r
-"   " set statusline+=Line:%l/%L[%p%%]
-"   " set statusline+=Col:%v
-"   " set statusline+=Buf:#%n
-"   " set statusline+=[%b][0x%B]
-" endif
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General abbreviations
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -467,7 +399,7 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 " Turn persistent undo on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-  set undodir=~/.files/temp/undos
+  " set undodir=~/.files/temp/undos
   set undofile
 catch
 endtry
@@ -476,6 +408,12 @@ endtry
 " Omni complete functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set omnifunc=syntaxcomplete#Complete
+
+
+
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
