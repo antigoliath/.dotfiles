@@ -1,17 +1,21 @@
+" Remap leader key so my pinky can rest
 let mapleader=','
 
-set nocompatible               " be iMproved
+set nocompatible               " just in case
 filetype off                   " required!
 
-" non standard bash
-set shell=/bin/sh
 
-" for my broken hand...
-set mouse=a
+set shell=/bin/sh  " non standard shell
 
+" Uncomment if your hand is broken
+" set mouse=a
+
+" Background color erase.
+" Useful for maintaining color themes in tmux/GNU
 set t_ut=
 
-" for 'b'
+" when going forward and backward ('b', 'e'), allow underscores to be
+" recognized as keywords
 set iskeyword-=_
 
 " always show status bar
@@ -20,85 +24,42 @@ set laststatus=2
 " for system clipping - even in tmux
 set clipboard=unnamed
 
-" Core
-"
+""""""""""""""""""""""
+"""""""  Core  """""""
+""""""""""""""""""""""
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'flazz/vim-colorschemes'
-
-Plug 'zhaocai/GoldenView.Vim'  " Plug 'roman/golden-ratio'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'flazz/vim-colorschemes'    " THE COLORS DUKE ~
+Plug 'zhaocai/GoldenView.Vim'      " Nice resizing for buffers. Replaces roman/golden-ratio
+Plug 'junegunn/fzf',                " RICIDULOUSLY FAST file search. Replaces ctrlP.
+      \ { 'dir': '~/.fzf',
+      \   'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'FelikZ/ctrlp-py-matcher'  " For faster ctrlp matching
+Plug 'scrooloose/nerdtree'  " Not the fastest, but good enough
+" TODO: Check out Neomake: https://github.com/neomake/neomake
+Plug 'scrooloose/syntastic'  " Syntax highlighting.
+Plug 'tpope/vim-fugitive'     " Incredibly useful git bindings
+Plug 'itchyny/lightline.vim'     " Status line! Replaces vim-airline & powerline
+Plug 'ap/vim-buftabline'         " Top of the window list of buffers. Replaces vim-airline functionality
+Plug 'tpope/vim-unimpaired'     " a set of nice keyboard mappings
+Plug 'tmhedberg/matchit'        " Better % mapping, in particular - HTML
+Plug 'tpope/vim-ragtag'         " Mappings for HTML! And other stuff.
+Plug 'tpope/vim-surround'       " Useful keybindings for modifying surrounding pairs (), [], '', etc
+Plug 'easymotion/vim-easymotion'  " fast search and navigation. I mainly use it to replace /
+                                  " For a lightweight alternative, see vim-sneak
+Plug 'tpope/vim-repeat'           " basically to just support tpope's plugins
+Plug 'Shougo/neocomplete.vim'    " Auto completion. Replaces YouCompleteMe.
+Plug 'ConradIrwin/vim-bracketed-paste'   " fixes copy pasting.
+Plug 'junegunn/vim-easy-align'  " Align all the things! Replaces 'godlygeek/tabular'
+Plug 'tpope/vim-commentary'     " comment stuff out!
+Plug 'nathanaelkane/vim-indent-guides'  " show where your indents are! Replaces Yggdroot/indentLine
+Plug 'Valloric/MatchTagAlways'   " always show which tags are highlighted.
+                                 " WARNING: may affect scroll performance!!
+                                 "
+Plug 'sjl/vitality.vim'   " vake vim play nicely with iterm + tmux
 
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-
-" " i want to replace
-Plug 'tpope/vim-fugitive'
-
-
-
-" not using lightline because it does not and will not support top bar tabline
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-buftabline'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'mileszs/ack.vim'
-" Plug 'ervandew/supertab'
-
-Plug 'tpope/vim-unimpaired'
-Plug 'tmhedberg/matchit'
-Plug 'tpope/vim-ragtag'
-" Plug 'chrisbra/NrrwRgn'
-
-" Plug 'justinmk/vim-sneak'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-
-Plug 'jiangmiao/auto-pairs'  " Plug 'Raimondi/delimitMate'
-Plug 'plasticboy/vim-markdown'  " Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-commentary'
-
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Yggdroot/indentLine'
-
-" " experimenting
-" Plug 'Keithbsmiley/investigate.vim'
-" Plug 'junegunn/vim-after-object'
-Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/vimshell.vim'
-" Plug 'Shougo/vimproc'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-" Plug 'reedes/vim-pencil'
-Plug 'ludovicchabant/vim-lawrencium'
-
-""" EXPERIMENTATION SETUP BEGIN
-" vim-after-object
-" autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
-
-""" EXPERIMENTATION SETUP END
-
-"
-Plug 'junegunn/vim-easy-align'  " Plug 'godlygeek/tabular'
-
-"
-Plug 'ConradIrwin/vim-bracketed-paste'
-" Plug 'justinmk/vim-gtfo'
-
-" for fun
-" Plug 'junegunn/vim-emoji'
-
-" external
-Plug 'Valloric/MatchTagAlways'
-Plug 'sjl/vitality.vim'
-
-"language specific
+" language specific syntax/convenience plugins:
 Plug 'othree/html5.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'othree/yajs.vim'
@@ -109,80 +70,38 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
-" Plug 'marijnh/tern_for_vim'
 Plug 'dag/vim-fish'
 Plug 'mxw/vim-jsx'
 Plug 'vim-scripts/ShaderHighLight'
+Plug 'ludovicchabant/vim-lawrencium'
+Plug 'plasticboy/vim-markdown'
 
-" Plug 'def-lkb/ocp-indent-vim'
-" Plug 'the-lambda-church/merlin', {'dir': 'vim/merlin'}
+" for writing:
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
-
-" Plug 'git://github.com/MartinLafreniere/vim-PairTools.git'
-
-" autocmd FileType reason let g:pairtools_reason_pairclamp = 1
-" autocmd FileType reason let g:pairtools_reason_tagwrench = 0
-" autocmd FileType reason let g:pairtools_reason_jigsaw    = 1
-" autocmd FileType reason let g:pairtools_reason_autoclose  = 1
-" autocmd FileType reason let g:pairtools_reason_forcepairs = 0
-" autocmd FileType reason let g:pairtools_reason_closepairs = "(:),[:],{:}" . ',":"'
-" autocmd FileType reason let g:pairtools_reason_smartclose = 1
-" autocmd FileType reason let g:pairtools_reason_smartcloserules = '\w,(,&,\*'
-" autocmd FileType reason let g:pairtools_reason_antimagic  = 1
-" autocmd FileType reason let g:pairtools_reason_antimagicfield  = "Comment,String,Special"
-" autocmd FileType reason let g:pairtools_reason_pcexpander = 1
-" autocmd FileType reason let g:pairtools_reason_pceraser   = 1
-" autocmd FileType reason let g:pairtools_reason_tagwrenchhook = 'tagwrench#BuiltinNoHook'
-" autocmd FileType reason let g:pairtools_reason_twexpander = 0
-" autocmd FileType reason let g:pairtools_reason_tweraser   = 0
-" autocmd FileType reason let g:pairtools_reason_apostrophe = 0
-
-" autocmd BufWritePre *.re :ReasonPrettyPrint
+" In flux...
+Plug 'jiangmiao/auto-pairs'       " Plug 'Raimondi/delimitMate'
 
 
 
 
-
-" Plug '/Users/davidxu/code/dxu/fb/Reason/editorSupport/VimReason'
-
-" if !empty(system('which opam'))
-"   " =================================== Merlin ================================
-"   let s:merlinPath=substitute(system('opam config var share'),'\n$','','') . "/merlin"
-"   execute "set rtp+=".s:merlinPath."/vim"
-"   execute "set rtp+=".s:merlinPath."/vimbufsync"
-"   let g:syntastic_reason_checkers=['merlin']
-"   let g:merlin_binary_flags = ["-pp", "reasonfmt_merlin"]
-" else
-"   " TODO: figure out opam for windows
-" endif
-
-
-""""""" REMOVED
-" seems useful but never used in practice
+" YMMV plugins. Only occasionally used. Removed to improve experience.
+" Plug 'chrisbra/NrrwRgn'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'mileszs/ack.vim'
+" Plug 'Keithbsmiley/investigate.vim'
+" Plug 'junegunn/vim-after-object'
 " Plug 'Shougo/vimshell.vim'
+" Plug 'Shougo/vimproc'
+" Plug 'reedes/vim-pencil'
+" Plug 'marijnh/tern_for_vim'
+" Plug 'justinmk/vim-gtfo'
+" Plug 'junegunn/vim-emoji'
 " Plug 'mattn/emmet-vim'
 " Plug 'majutsushi/tagbar'
-"
-" language specifi
-" Plug 'fatih/vim-go'
-" Plug 'cakebaker/scss-syntax.vim'
-" Plug 'drichard/vim-brunch'
-" Plug 'begriffs/haskell-vim-now'
-
-" ios
-" Plug 'eraserhd/vim-ios/'
-" Plug 'msanders/cocoa.vim'
-" Plug 'toyamarinyon/vim-swift'
-"
-" replaced with better alternatives
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" JSX
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jsx_ext_required = 0
-
-call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Specific
