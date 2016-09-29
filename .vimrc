@@ -409,6 +409,11 @@ endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set omnifunc=syntaxcomplete#Complete
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Writing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shift tab to unindent (command mode only)
+nnoremap <S-Tab> <<
 
 
 
@@ -428,11 +433,6 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-""""""""""""""""""""""""""""""
-" => YankRing
-""""""""""""""""""""""""""""""
-" let g:yankring_history_dir = '~/.files/temp/'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -492,39 +492,6 @@ command! FZFR call s:find_root()
 map <C-p> :FZFR<CR>
 map <C-o> :FZF<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_max_height = 20
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" map <C-p> :CtrlP<CR>
-" imap <C-p> <ESC>:CtrlP<CR>
-
-" if executable('ag')
-"   " NOTE: should use global .agignore for ignoring files!
-"   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-"         \ -g ""
-"         \ '
-" else
-"   let g:ctrlp_custom_ignore = {
-"     \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|venv|bower_components|tmp',
-"     \ 'file': '\v\.(exe|so|dll|swp|o)$',
-"     \ 'link': 'some_bad_symbolic_links',
-"     \ }
-" endif
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Writing
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" for command mode
-nnoremap <S-Tab> <<
-" for insert mode
-" inoremap <S-Tab> <C-d>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -538,7 +505,6 @@ map <leader>gy :Goyo<CR>
 map <leader>ll :Limelight<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
@@ -556,19 +522,12 @@ map <leader>gP :Git pull
 map <leader>gp :Git push
 map <leader>g<Space> :Git<Space>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <M-o> <Esc>o
 inoremap <C-j> <Down>
 let g:ragtag_global_maps = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ragtag
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:miniBufExplCheckDupeBufs = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -580,7 +539,6 @@ let g:goldenview__enable_default_mapping = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -602,22 +560,6 @@ map <leader>sr :SyntasticCheck<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:airline_theme='jellybeans'
-
-" " Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
-
-" " Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
-
-" " YCM
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_complete_in_comments = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ack.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nmap <leader>a :Ack<cr>
@@ -625,10 +567,11 @@ map <leader>sr :SyntasticCheck<CR>
 " if executable('ag')
 "   let g:ackprg = 'ag --vimgrep'
 " endif
+" TODO: add ripgrep support
 
-"""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-indent-guides
-"""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 
@@ -643,7 +586,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a gu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easymotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Gif config
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -710,7 +652,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -743,4 +685,3 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.ruby =
 \ '[^. *\t]\.\w*\|\h\w*::'
-
