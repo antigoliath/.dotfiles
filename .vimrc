@@ -46,13 +46,12 @@ set clipboard=unnamed
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/fu'                           " THE COLORS DUKE ~
-Plug 'zhaocai/GoldenView.Vim'                   " Nice resizing for buffers. Replaces roman/golden-ratio
+Plug 'vim-scripts/fu'                           " THE COLORS DUKE ~ Plug 'zhaocai/GoldenView.Vim'                   " Nice resizing for buffers. Replaces roman/golden-ratio
 Plug 'junegunn/fzf',                            " ridiculously fast file search. Replaces ctrlP.
       \ { 'dir': '~/.fzf',
       \   'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'                      " File explorer
+Plug 'scrooloose/nerdtree',                      " File explorer
 " TODO: https://github.com/neomake/neomake
 Plug 'scrooloose/syntastic'                     " Syntax highlighting.
 Plug 'tpope/vim-fugitive'                       " Incredibly useful git bindings
