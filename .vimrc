@@ -46,34 +46,33 @@ set clipboard=unnamed
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/fu'              " THE COLORS DUKE ~
-Plug 'zhaocai/GoldenView.Vim'      " Nice resizing for buffers. Replaces roman/golden-ratio
-Plug 'junegunn/fzf',                " RICIDULOUSLY FAST file search. Replaces ctrlP.
+Plug 'vim-scripts/fu'                           " THE COLORS DUKE ~
+Plug 'zhaocai/GoldenView.Vim'                   " Nice resizing for buffers. Replaces roman/golden-ratio
+Plug 'junegunn/fzf',                            " ridiculously fast file search. Replaces ctrlP.
       \ { 'dir': '~/.fzf',
       \   'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'  " Not the fastest, but good enough
-" TODO: Check out Neomake: https://github.com/neomake/neomake
-Plug 'scrooloose/syntastic'  " Syntax highlighting.
-Plug 'tpope/vim-fugitive'     " Incredibly useful git bindings
-Plug 'itchyny/lightline.vim'     " Status line! Replaces vim-airline & powerline
-Plug 'ap/vim-buftabline'         " Top of the window list of buffers. Replaces vim-airline functionality
-Plug 'tpope/vim-unimpaired'     " a set of nice keyboard mappings
-Plug 'tmhedberg/matchit'        " Better % mapping, in particular - HTML
-Plug 'tpope/vim-ragtag'         " Mappings for HTML! And other stuff.
-Plug 'tpope/vim-surround'       " Useful keybindings for modifying surrounding pairs (), [], '', etc
-Plug 'easymotion/vim-easymotion'  " fast search and navigation. I mainly use it to replace /
-                                  " For a lightweight alternative, see vim-sneak
-Plug 'tpope/vim-repeat'           " basically to just support tpope's plugins
-Plug 'Shougo/neocomplete.vim'    " Auto completion. Replaces YouCompleteMe.
-Plug 'ConradIrwin/vim-bracketed-paste'   " fixes copy pasting.
-Plug 'junegunn/vim-easy-align'  " Align all the things! Replaces 'godlygeek/tabular'
-Plug 'tpope/vim-commentary'     " comment stuff out!
-Plug 'nathanaelkane/vim-indent-guides'  " show where your indents are! Replaces Yggdroot/indentLine
-Plug 'Valloric/MatchTagAlways'   " always show which tags are highlighted.
-                                 " WARNING: may affect scroll performance!!
-                                 "
-Plug 'sjl/vitality.vim'   " vake vim play nicely with iterm + tmux
+Plug 'scrooloose/nerdtree'                      " File explorer
+" TODO: https://github.com/neomake/neomake
+Plug 'scrooloose/syntastic'                     " Syntax highlighting.
+Plug 'tpope/vim-fugitive'                       " Incredibly useful git bindings
+Plug 'itchyny/lightline.vim'                    " Status line! Replaces vim-airline & powerline
+Plug 'ap/vim-buftabline'                        " Top of the window list of buffers. Replaces vim-airline functionality
+Plug 'tpope/vim-unimpaired'                     " a set of nice keyboard mappings
+Plug 'tmhedberg/matchit'                        " Better % mapping, in particular - HTML
+Plug 'tpope/vim-ragtag'                         " Mappings for HTML! And other stuff.
+Plug 'tpope/vim-surround'                       " Useful keybindings for modifying surrounding pairs (), [], '', etc
+Plug 'easymotion/vim-easymotion'                " fast search and navigation. I mainly use it to replace /
+                                                " For a lightweight alternative, see vim-sneak
+Plug 'tpope/vim-repeat'                         " basically to just support tpope's plugins
+Plug 'Shougo/neocomplete.vim'                   " Auto completion. Replaces YouCompleteMe.
+Plug 'ConradIrwin/vim-bracketed-paste'          " fixes copy pasting.
+Plug 'junegunn/vim-easy-align'                  " Align all the things! Replaces 'godlygeek/tabular'
+Plug 'tpope/vim-commentary'                     " comment stuff out!
+Plug 'nathanaelkane/vim-indent-guides'          " show where your indents are! Replaces Yggdroot/indentLine
+Plug 'Valloric/MatchTagAlways'                  " always show which tags are highlighted.
+                                                " WARNING: may affect scroll performance!!
+Plug 'sjl/vitality.vim'                         " make vim play nicely with iterm + tmux
 
 " language specific syntax/convenience plugins:
 Plug 'othree/html5.vim'
@@ -115,18 +114,6 @@ Plug 'jiangmiao/auto-pairs'       " Plug 'Raimondi/delimitMate'
 " Plug 'majutsushi/tagbar'
 
 call plug#end()
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Language Specific
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.ejs set filetype=html
-
-
-"""""""""""""""""""""""""""""""
-" JSX
-"""""""""""""""""""""""""""""""
-let g:jsx_ext_required = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -420,6 +407,8 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set omnifunc=syntaxcomplete#Complete
 
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Writing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -434,8 +423,6 @@ nnoremap <S-Tab> <<
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 """"""""""""""""""""""""""""""
 " => vim-easy-align - https://github.com/junegunn/vim-easy-align
 """"""""""""""""""""""""""""""
@@ -685,3 +672,17 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.ruby =
 \ '[^. *\t]\.\w*\|\h\w*::'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Language Specific
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.ejs set filetype=html
+
+
+"""""""""""""""""""""""""""""""
+" JSX
+"""""""""""""""""""""""""""""""
+let g:jsx_ext_required = 0
+
+
