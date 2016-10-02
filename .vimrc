@@ -437,7 +437,7 @@ nnoremap <S-Tab> <<
 
 
 """"""""""""""""""""""""""""""
-" => vim-easy-align
+" => vim-easy-align - https://github.com/junegunn/vim-easy-align
 """"""""""""""""""""""""""""""
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -447,14 +447,14 @@ nmap ga <Plug>(EasyAlign)
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-commentary
+" vim-commentary - https://github.com/tpope/vim-commentary
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap <leader>c <Plug>Commentary
 nmap <leader>c <Plug>CommentaryLine
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree
+" => NERDTree - https://github.com/scrooloose/nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>n :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
@@ -484,7 +484,7 @@ let NERDTreeIgnore=[
 let NERDTreeHijackNetrw=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FZF
+" fzf + fzf.vim - https://github.com/junegunn/fzf.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " looks for project root - see https://github.com/junegunn/fzf/issues/369
 function! s:find_root()
@@ -506,19 +506,19 @@ map <C-o> :FZF<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Goyo
+" Goyo - https://github.com/junegunn/goyo.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>gy :Goyo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Limelight
+" Limelight - https://github.com/junegunn/limelight.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>ll :Limelight<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fugitive
+" Fugitive - https://github.com/tpope/vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>gb :Gblame -w<CR>
 map <leader>gs :Gstatus<CR>
@@ -534,7 +534,7 @@ map <leader>gp :Git push
 map <leader>g<Space> :Git<Space>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ragtag
+" ragtag - https://github.com/tpope/vim-ragtag
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap <M-o> <Esc>o
 inoremap <C-j> <Down>
@@ -542,13 +542,13 @@ let g:ragtag_global_maps = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GoldenView
+" GoldenView - https://github.com/zhaocai/GoldenView.Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:goldenview__enable_default_mapping = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" syntastic
+" Syntastic - https://github.com/scrooloose/syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -569,19 +569,8 @@ map <leader>ss :Errors<CR>
 map <leader>sc :lclose<CR>
 map <leader>sr :SyntasticCheck<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ack.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nmap <leader>a :Ack<cr>
-" " to use the silver searcher
-" if executable('ag')
-"   let g:ackprg = 'ag --vimgrep'
-" endif
-" TODO: add ripgrep support
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-indent-guides
+" vim-indent-guides - https://github.com/nathanaelkane/vim-indent-guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
@@ -590,12 +579,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234 guibg=#1a1a1a gu
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235 guibg=#1a1a1a guifg=#1a1a1a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" auto-pairs
+" auto-pairs - https://github.com/jiangmiao/auto-pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:AutoPairsFlyMode = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" easymotion
+" easymotion - https://github.com/easymotion/vim-easymotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -617,7 +606,7 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoComplete
+" NeoComplete - https://github.com/Shougo/neocomplete.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
