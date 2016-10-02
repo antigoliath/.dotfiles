@@ -18,7 +18,7 @@ set noswapfile
 " Turn persistent undo on
 try
   " YMMV: Optional
-  " set undodir=~/.files/temp/undos
+  set undodir=~/.files/temp/undos
   set undofile
 catch
 endtry
