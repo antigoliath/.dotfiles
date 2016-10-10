@@ -18,6 +18,7 @@ brew cask install the-unarchiver
 brew cask install steam
 brew cask install licecap
 brew cask install skype
+brew cask install smoothmouse
 
 # install xcode
 brew install macvim --with-cscope --with-lua --override-system-vim
@@ -43,6 +44,8 @@ brew reinstall --HEAD fzf
 
 
 # links
+# iterm theme
+ln -s ~/.files/themes/ ~/themes
 ln -s ~/.files/.bashrc ~/.bashrc
 ln -s ~/.files/.bash_profile ~/.bash_profile
 ln -s ~/.files/.bash_aliases ~/.bash_aliases
@@ -126,6 +129,8 @@ brew install fish
 # to /etc/shells.
 
 chsh -s /usr/local/bin/fish
+
+fundle install
 
 
 
