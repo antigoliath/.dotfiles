@@ -90,7 +90,7 @@ end
 
 function __fundle_plugins_dir -d "returns fundle directory"
 	if test -z "$fundle_plugins_dir"
-		echo $HOME/.config/fish/fundle
+		echo $HOME/.files/fish/fundle
 	else
 		echo $fundle_plugins_dir
 	end
