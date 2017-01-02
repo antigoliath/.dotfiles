@@ -1,7 +1,13 @@
 set -x PATH /usr/local/bin $PATH
 set -x EDITOR vim
 set -x NVM_DIR "/Users/robo/.nvm" set -x KEYTIMEOUT 1
-set -x SHELL /usr/local/bin/fish
+if test -e /usr/local/bin/fish
+  set -x SHELL /usr/local/bin/fish
+else if test -e /usr/bin/fish
+  set -x SHELL /usr/bin/fish
+else
+  echo "[.files] ERROR: fish was not found in /usr/local/bin/fish or /usr/bin/fish. SHELL was not set."
+end
 set -x HOMEBREW_CASK_OPTS "--appdir=/Applications --caskroom=/usr/local/Caskroom"
 
 # globals
