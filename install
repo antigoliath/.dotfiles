@@ -31,6 +31,8 @@ brew install tig
 brew install the_silver_searcher
 brew install tmux
 brew install hub
+brew install jq
+brew install watch
 
 brew install gpg
 # for node repl
@@ -50,12 +52,33 @@ ln -s ~/.files/.bashrc ~/.bashrc
 ln -s ~/.files/.bash_profile ~/.bash_profile
 ln -s ~/.files/.bash_aliases ~/.bash_aliases
 ln -s ~/.files/.tmux.conf ~/.tmux.conf
-ln -s ~/.files/.vimrc ~/.vimrc
 ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/.jshintrc ~/.jshintrc
 ln -s ~/.files/.coffeelint.json ~/.coffeelint.json
 ln -s ~/.files/.agignore ~/.agignore
 ln -s ~/.files/.hyperterm.js ~/.hyperterm.js
+
+# vim stuff
+ln -s ~/.files/.vimrc ~/.vimrc
+git clone git@github.com:dxu/dotvim.git ~/.dotvim
+cd ~/.dotvim
+./install-sandbox.sh
+cd ~
+
+
+# neovim
+brew install neovim/neovim/neovim
+
+# required for matchtagalways
+sudo pip2 install --upgrade neovim
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+mkdir -p ~/.config/nvim/
+ln -s ~/.files/.vimrc ~/.config/nvim/init.vim
+
+
 
 mkdir -p ~/.vim/autoload
 curl -fLo ~/.vim/autoload/plug.vim \

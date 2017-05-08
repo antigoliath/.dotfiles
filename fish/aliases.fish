@@ -7,6 +7,8 @@ alias monitorr='monitor_right'
 alias monitorl='monitor_left'
 # navigation aliases
 
+alias vim='nvim'
+
 alias ls='ls -FG'
 alias ll='ls -la'
 alias la='ls -A'
