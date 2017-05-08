@@ -67,10 +67,12 @@ cd ~
 
 
 # neovim
+brew install python3
 brew install neovim/neovim/neovim
 
 # required for matchtagalways
-sudo pip2 install --upgrade neovim
+pip2 install --user neovim
+pip3 install --user neovim
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
