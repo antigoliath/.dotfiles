@@ -7,7 +7,8 @@ function fish_user_key_bindings
 end
 
 
-set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -x FZF_DEFAULT_COMMAND 'rg --files'
+# set -x FZF_DEFAULT_COMMAND 'ag -l -g ""'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x OCAMLRUNPARAM "b"
 
