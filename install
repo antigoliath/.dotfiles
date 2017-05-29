@@ -57,7 +57,7 @@ ln -s ~/.files/.tmux.conf ~/.tmux.conf
 ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/.jshintrc ~/.jshintrc
 ln -s ~/.files/.coffeelint.json ~/.coffeelint.json
-# ln -s ~/.files/.agignore ~/.agignore
+ln -s ~/.files/.ignore ~/.ignore
 ln -s ~/.files/.hyperterm.js ~/.hyperterm.js
 
 # vim stuff
