@@ -28,7 +28,9 @@ brew linkapps
 brew install node
 # npm installs with node now!
 brew install tig
-brew install the_silver_searcher
+# brew install the_silver_searcher
+# Replaces AG:
+brew install ripgrep
 brew install tmux
 brew install hub
 brew install jq
@@ -55,7 +57,7 @@ ln -s ~/.files/.tmux.conf ~/.tmux.conf
 ln -s ~/.files/.gitignore_global ~/.gitignore_global
 ln -s ~/.files/.jshintrc ~/.jshintrc
 ln -s ~/.files/.coffeelint.json ~/.coffeelint.json
-ln -s ~/.files/.agignore ~/.agignore
+# ln -s ~/.files/.agignore ~/.agignore
 ln -s ~/.files/.hyperterm.js ~/.hyperterm.js
 
 # vim stuff
