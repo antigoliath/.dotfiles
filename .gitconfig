@@ -5,6 +5,7 @@
 	ui = true
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
 	autocrlf = input
 [alias]
   s = status -sb
@@ -12,6 +13,6 @@
   br = branch
   co = checkout
   df = diff
-  lg =  log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 [help]
 	autocorrect = 1
