@@ -10,37 +10,26 @@ brew cask alfred link
 brew cask install spectacle
 brew cask install vlc
 brew cask install dropbox
-brew cask install hyperterm
-brew cask install flux
-brew cask install transmission
-brew cask install caffeine
 brew cask install the-unarchiver
 brew cask install steam
 brew cask install licecap
-brew cask install skype
-brew cask install smoothmouse
+
+# neovim
+brew install python3
+pip3 install neovim --upgrade
+
 
 # install xcode
-brew install macvim --with-cscope --with-lua --override-system-vim
+brew install vim --with-cscope --with-lua --with-python3 --override-system-vim
 brew linkapps
 
 # CLI
 brew install node
 # npm installs with node now!
 brew install tig
-# brew install the_silver_searcher
-# Replaces AG:
-brew install ripgrep
 brew install tmux
-brew install hub
-brew install jq
-brew install watch
 
-brew install gpg
 # for node repl
-brew install rlwrap
-gem install bropages
-brew install cgdb
 
 brew reinstall --HEAD fzf
 /usr/local/Cellar/fzf/HEAD/install
@@ -66,27 +55,6 @@ git clone git@github.com:dxu/dotvim.git ~/.dotvim
 cd ~/.dotvim
 ./install-sandbox.sh
 cd ~
-
-
-# neovim
-brew install python3
-brew install neovim/neovim/neovim
-
-# required for matchtagalways
-pip2 install --user neovim
-pip3 install --user neovim
-
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-mkdir -p ~/.config/nvim/
-ln -s ~/.files/.vimrc ~/.config/nvim/init.vim
-
-
-
-mkdir -p ~/.vim/autoload
-curl -fLo ~/.vim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # configs
 git config --global color.ui true
@@ -114,42 +82,10 @@ defaults write com.apple.dock pinning -string start
 # dim hidden items
 defaults write com.apple.dock showhidden -bool true
 
-# cdock
-brew cask install cdock
-
-# markdown stuff
-sudo gem install pygments.rb
-sudo gem install redcarpet
-sudo npm install -g instant-markdown-d
-
-
-# npm
-npm install -g coffee-script
-npm install -g express
-npm install -g bower
-npm install -g grunt
-npm install -g coffeelint
-npm install -g json
-npm install --global pure-prompt
-
-npm install -g eslint babel-eslint
-
-npm install --global kill-tabs
-
-
-# vim
-cd ~/.vim/plugged/YouCompleteMe
-./install.sh --clang-completer
-
-
-# GO - MUST UPDATE VERSION AND LOCATION:
-brew install hg
-brew install go
-GOPATH=/usr/local/Cellar/go/1.3/bin/
- export GOPATH
-
-
 brew install fish
+
+rm -rf ~/.config/fish
+ln -s ~/.files/fish ~/.config/fish
 
 # You will need to add: POSSIBLY DIFFERENT PATH
 #  /usr/local/bin/fish
@@ -158,36 +94,3 @@ brew install fish
 chsh -s /usr/local/bin/fish
 
 fundle install
-
-
-
-
-brew install git-extras
-
-(cd /tmp && git clone --depth 1 https://github.com/tj/git-extras.git && cd git-extras && sudo make install)
-
-# dev
-brew install zsh
-
-# antigen
-curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > antigen.zsh
-source antigen.zsh
-
-chsh -s /usr/local/bin/zsh
-
-
-
-
-
-git clone git://github.com/facebook/libphutil.git ~/tools/
-git clone git://github.com/facebook/arcanist.git ~/tools/
-
-
-if [ -e /home/vagrant/.gvm/scripts/gvm ]; then
-    echo "GVM already installed. Skipping."
-else
-    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-    source ~/.gvm/scripts/gvm
-    gvm install go1.2.2
-fi
-
