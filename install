@@ -13,6 +13,9 @@ brew cask install dropbox
 brew cask install the-unarchiver
 brew cask install steam
 brew cask install licecap
+brew cask install kap
+
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # neovim
 brew install python3
@@ -31,8 +34,8 @@ brew install tmux
 
 # for node repl
 
-brew reinstall --HEAD fzf
-/usr/local/Cellar/fzf/HEAD/install
+brew install fzf
+$(brew --prefix)/opt/fzf/install
 
 
 
@@ -57,10 +60,8 @@ cd ~/.dotvim
 cd ~
 
 # configs
-git config --global color.ui true
-git config --global user.name "David"
-git config --global user.email "xudavidb@gmail.com"
-git config --global core.excludesfile ~/.gitignore_global
+
+ln -s ~/.files/.gitconfig ~/.gitconfig
 
 mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots

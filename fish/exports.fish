@@ -8,7 +8,6 @@ else if test -e /usr/bin/fish
 else
   echo "[.files] ERROR: fish was not found in /usr/local/bin/fish or /usr/bin/fish. SHELL was not set."
 end
-set -x HOMEBREW_CASK_OPTS "--appdir=/Applications --caskroom=/usr/local/Caskroom"
 
 # globals
 set -x EC2 'ubuntu@184.73.248.188'
